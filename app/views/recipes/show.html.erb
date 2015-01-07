@@ -15,7 +15,35 @@
   <%= @recipe.servings %>
 </p>
 
+
+<h3>Comments</h3>
+<ul>
+  <% @recipe.comments.each do |comment| %>
+  <li>
+    <%= comment.body %>
+    <%= button_to "Remove Comment", comment_url(comment), method: :delete %>
+  </li>
+  <% end %>
+</ul>
+
+
+<h3>Add Comment</h3>
+
+<%= render "layouts/errors" %>
+
+<form action="<%= recipe_comments_url(@recipe) %>" method="post">
+  <%= auth_token_input %>
+
+  <label>
+    Comment
+  </label>
+    <input type="text" name="comment[body]" value="">
+
+  <input type="submit" value="Add Comment">
+</form>
+
 <%= link_to "Edit Recipe", edit_recipe_url(@recipe) %>
 <% if current_user == @recipe.user %>
 <%= button_to "Delete Recipe", recipe_url(@recipe), method: :delete %>
 <% end %>
+<%= link_to "Recipes", recipes_url %>

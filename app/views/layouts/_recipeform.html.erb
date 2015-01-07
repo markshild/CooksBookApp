@@ -20,7 +20,13 @@
 
   <label>Description</label>
   <textarea name="recipe[description]" rows="8" cols="40"><%= recipe.description if recipe.persisted? %></textarea>
+  <br>
+  <h4>Ingredients</h4>
 
+  <br>
+  <h4>Ingredients</h4>
+
+  <br>
   <label>Cooking Time (Minutes)</label>
   <input type="number" name="recipe[cooking_time]" value="<%= recipe.cooking_time if recipe.persisted? %>">
 
