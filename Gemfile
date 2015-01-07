@@ -45,6 +45,10 @@ group :development, :test do
   gem 'factory_girl_rails'
 end
 
+group :production do
+  gem 'rails_12factor'
+end
+
 group :test do
   gem 'faker'
   gem 'capybara'
