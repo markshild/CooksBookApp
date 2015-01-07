@@ -27,7 +27,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 # Use ActiveModel has_secure_password
-gem 'bcrypt', require: 'BCrypt'
+gem 'bcrypt', require: 'bcrypt-ruby'
 
 gem 'backbone-on-rails'
 
