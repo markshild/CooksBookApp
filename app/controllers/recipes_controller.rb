@@ -11,12 +11,15 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+    3.times do |i|
+      @recipe.ingredients.new(ord: i)
+    end
   end
 
   def create
     @recipe = current_user.recipes.new(recipe_params)
-    ingredient_params.each.with_index do |(ord_val, ingredient_val), index|
-      @recipe.ingredients.new({ord: index, ingredient: ingredient_val})
+    ingredient_params.keys.each do |key|
+      @recipe.ingredients.new({ord: ingredient_params[key]['ord'], ingredient: ingredient_params[key]['name']})
     end
 
     if @recipe.save
@@ -34,9 +37,10 @@ class RecipesController < ApplicationController
   def update
     @recipe = Recipe.find(params[:id])
 
-    transaction do
-      @recipe.ingredients.each do |ingredient, index|
-        ingredient.ingredient = ingredient_params[index.to_s]
+    Recipe.transaction do
+      ingredient_params.keys.each do |key|
+        @ingredient = Ingredient.find(ingredient_params[key]['id'])
+        @ingredient.update({ord: ingredient_params[key]['ord'], ingredient: ingredient_params[key]['name']})
       end
     end
 

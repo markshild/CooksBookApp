@@ -16,27 +16,28 @@
   <% end %>
 
   <label>Title</label>
-  <input type="text" name="recipe[title]" value="<%= recipe.title if recipe.persisted? %>">
+  <input type="text" name="recipe[title]" value="<%= recipe.title%>">
 
   <label>Description</label>
-  <textarea name="recipe[description]" rows="8" cols="40"><%= recipe.description if recipe.persisted? %></textarea>
+  <textarea name="recipe[description]" rows="8" cols="40"><%= recipe.description %></textarea>
   <br>
   <h4>Ingredients</h4>
-    <label>1:</label>
-    <input type="text" name="ingredient[0]" value="">
-    <label>2:</label>
-    <input type="text" name="ingredient[1]" value="">
-    <label>3:</label>
-    <input type="text" name="ingredient[2]" value="">
+    <% @recipe.ingredients.each_with_index do |ingredient, index| %>
+      <label><%= index + 1 %>:</label>
+      <input type="text" name="ingredient[<%= index %>][name]" value="<%= ingredient.ingredient %>">
+      <label>Order</label>
+      <input type="number" name="ingredient[<%= index %>][ord]" value="<%= ingredient.ord %>">
+      <input type="hidden" name="ingredient[<%= index %>][id]" value="<%= ingredient.id %>">
+    <% end %>
   <br>
   <h4>Directions</h4>
 
   <br>
   <label>Cooking Time (Minutes)</label>
-  <input type="number" name="recipe[cooking_time]" value="<%= recipe.cooking_time if recipe.persisted? %>">
+  <input type="number" name="recipe[cooking_time]" value="<%= recipe.cooking_time %>">
 
   <label>Servings</label>
-  <input type="number" name="recipe[servings]" value="<%= recipe.servings if recipe.persisted? %>">
+  <input type="number" name="recipe[servings]" value="<%= recipe.servings %>">
 
   <input type="submit" value="<%= button2 %>">
 </form>
