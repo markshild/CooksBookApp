@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   attr_reader :password
 
-
+  has_many :recipes
   has_many :sessions
   has_many :comments
 

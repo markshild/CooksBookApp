@@ -14,8 +14,11 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.new(recipe_params)
-    @recipe.user_id = current_user.id
+    @recipe = current_user.recipes.new(recipe_params)
+    ingredient_params.each.with_index do |(ord_val, ingredient_val), index|
+      @recipe.ingredients.new({ord: index, ingredient: ingredient_val})
+    end
+
     if @recipe.save
       redirect_to recipe_url(@recipe)
     else
@@ -30,7 +33,14 @@ class RecipesController < ApplicationController
 
   def update
     @recipe = Recipe.find(params[:id])
-    if @recipe.update_attributes(recipe_params)
+
+    transaction do
+      @recipe.ingredients.each do |ingredient, index|
+        ingredient.ingredient = ingredient_params[index.to_s]
+      end
+    end
+
+    if @recipe.update(recipe_params)
       redirect_to recipe_url(@recipe)
     else
       flash.now[:errors] = @recipe.errors.full_messages
@@ -47,5 +57,9 @@ class RecipesController < ApplicationController
   private
   def recipe_params
     params.require(:recipe).permit(:title, :description, :servings, :img_url, :cooking_time)
+  end
+
+  def ingredient_params
+    params.require(:ingredient)
   end
 end

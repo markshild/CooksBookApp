@@ -5,6 +5,13 @@
   <%= @recipe.description %>
 </p>
 
+<h2>Ingredients</h2>
+<ul>
+  <% @recipe.ingredients.each do |ingredient| %>
+    <li><%= ingredient.ingredient %></li>
+  <% end %>
+</ul>
+
 <h2>Cooking Time (minutes)</h2>
 <p>
   <%= @recipe.cooking_time %>

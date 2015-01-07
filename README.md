@@ -44,10 +44,12 @@ body - text
 ### Ingredients:
 recipe_id - integer
 ingredient - string
+ord - integer
 
 ### Steps:
 recipe_id - integer
 step - string
+ord - integer
 
 ### Tags:
 name - string
