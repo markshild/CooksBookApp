@@ -1,0 +1,31 @@
+
+<% if recipe.persisted? %>
+  <% button =  recipe_url(recipe)%>
+  <% button2 = "Update Recipe" %>
+<% else %>
+  <% button = recipes_url %>
+  <% button2 = "Create Recipe" %>
+<% end %>
+
+<%= render "layouts/errors" %>
+
+<form id="form_id" action="<%= button %>" method="post">
+  <%= auth_token_input %>
+  <% if recipe.persisted? %>
+    <input type="hidden" name="_method" value="patch">
+  <% end %>
+
+  <label>Title</label>
+  <input type="text" name="recipe[title]" value="<%= recipe.title if recipe.persisted? %>">
+
+  <label>Description</label>
+  <textarea name="recipe[description]" rows="8" cols="40"><%= recipe.description if recipe.persisted? %></textarea>
+
+  <label>Cooking Time (Minutes)</label>
+  <input type="number" name="recipe[cooking_time]" value="<%= recipe.cooking_time if recipe.persisted? %>">
+
+  <label>Servings</label>
+  <input type="number" name="recipe[servings]" value="<%= recipe.servings if recipe.persisted? %>">
+
+  <input type="submit" value="<%= button2 %>">
+</form>

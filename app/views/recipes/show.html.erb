@@ -1,0 +1,21 @@
+<h1><%= @recipe.title %> </h1>
+
+<h2>Description</h2>
+<p>
+  <%= @recipe.description %>
+</p>
+
+<h2>Cooking Time (minutes)</h2>
+<p>
+  <%= @recipe.cooking_time %>
+</p>
+
+<h2>Servings</h2>
+<p>
+  <%= @recipe.servings %>
+</p>
+
+<%= link_to "Edit Recipe", edit_recipe_url(@recipe) %>
+<% if current_user == @recipe.user %>
+<%= button_to "Delete Recipe", recipe_url(@recipe), method: :delete %>
+<% end %>

@@ -5,11 +5,11 @@ For my final project, I will be doing a clone of the [Yummly](http://www.yummly.
 ## FEATURES:
 * Users/Auth
 * Recipes
-* Search
-* Tags
 * Comments
-* Favorite Recipes
+* Search
 Up to this point is the MVP
+* Tags
+* Favorite Recipes
 * Notifications
 * Advanced Search
 * Email Confirmation and Password Recovery
