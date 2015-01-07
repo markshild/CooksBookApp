@@ -6,12 +6,12 @@ For my final project, I will be doing a clone of the [Yummly](http://www.yummly.
 * Users/Auth
 * Recipes
 * Comments
-* Search
-Up to this point is the MVP
 * Tags
+Up to this point is the MVP
+* Search
 * Favorite Recipes
-* Notifications
 * Advanced Search
+* Notifications
 * Email Confirmation and Password Recovery
 * Nutrition Information
 * Printable Recipe Page

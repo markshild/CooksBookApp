@@ -35,7 +35,10 @@
   <% @recipe.comments.each do |comment| %>
   <li>
     <%= comment.body %>
-    <%= button_to "Remove Comment", comment_url(comment), method: :delete %>
+    - <%= comment.user.name %>
+    <% if comment.user_id == current_user.id %>
+      <%= button_to "Remove Comment", comment_url(comment), method: :delete %>
+    <% end %>
   </li>
   <% end %>
 </ul>
@@ -56,8 +59,9 @@
   <input type="submit" value="Add Comment">
 </form>
 
-<%= link_to "Edit Recipe", edit_recipe_url(@recipe) %>
+
 <% if current_user == @recipe.user %>
-<%= button_to "Delete Recipe", recipe_url(@recipe), method: :delete %>
+  <%= link_to "Edit Recipe", edit_recipe_url(@recipe) %>
+  <%= button_to "Delete Recipe", recipe_url(@recipe), method: :delete %>
 <% end %>
 <%= link_to "Recipes", recipes_url %>
