@@ -21,6 +21,7 @@
   <label>Description</label>
   <textarea name="recipe[description]" rows="8" cols="40"><%= recipe.description %></textarea>
   <br>
+
   <h4>Ingredients</h4>
     <% @recipe.ingredients.each_with_index do |ingredient, index| %>
       <label><%= index + 1 %>:</label>
@@ -30,6 +31,17 @@
       <input type="hidden" name="ingredient[<%= index %>][id]" value="<%= ingredient.id %>">
     <% end %>
   <br>
+
+  <h4>Directions</h4>
+  <% @recipe.directions.each_with_index do |direction, index| %>
+  <label><%= index + 1 %>:</label>
+  <input type="text" name="direction[<%= index %>][name]" value="<%= direction.step %>">
+  <label>Order</label>
+  <input type="number" name="direction[<%= index %>][ord]" value="<%= direction.ord %>">
+  <input type="hidden" name="direction[<%= index %>][id]" value="<%= direction.id %>">
+  <% end %>
+  <br>
+
   <h4>Directions</h4>
 
   <br>

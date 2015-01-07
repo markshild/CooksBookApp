@@ -13,13 +13,21 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new
     3.times do |i|
       @recipe.ingredients.new(ord: i)
+      @recipe.directions.new(ord: i)
     end
   end
 
   def create
     @recipe = current_user.recipes.new(recipe_params)
-    ingredient_params.keys.each do |key|
-      @recipe.ingredients.new({ord: ingredient_params[key]['ord'], ingredient: ingredient_params[key]['name']})
+
+    Recipe.transaction do
+      ingredient_params.keys.each do |key|
+        @recipe.ingredients.new({ord: ingredient_params[key]['ord'], ingredient: ingredient_params[key]['name']})
+      end
+
+      direction_params.keys.each do |key|
+        @recipe.directions.new({ord: direction_params[key]['ord'], step: direction_params[key]['name']})
+      end
     end
 
     if @recipe.save
@@ -41,6 +49,10 @@ class RecipesController < ApplicationController
       ingredient_params.keys.each do |key|
         @ingredient = Ingredient.find(ingredient_params[key]['id'])
         @ingredient.update({ord: ingredient_params[key]['ord'], ingredient: ingredient_params[key]['name']})
+      end
+      direction_params.keys.each do |key|
+        @direction = Direction.find(direction_params[key]['id'])
+        @direction.update({ord: direction_params[key]['ord'], step: direction_params[key]['name']})
       end
     end
 
@@ -65,5 +77,9 @@ class RecipesController < ApplicationController
 
   def ingredient_params
     params.require(:ingredient)
+  end
+
+  def direction_params
+    params.require(:direction)
   end
 end
