@@ -1,6 +1,8 @@
 json.extract! @recipe, :id, :title, :description, :servings, :cooking_time, :img_url, :created_at, :updated_at
 
-json.author @recipe.user.name
+json.author do
+  json.extract! @recipe.user, :id, :name
+end
 
 json.tags @recipe.tags do |tag|
   json.extract! tag, :id, :name
@@ -15,6 +17,7 @@ json.directions @recipe.directions do |direction|
 end
 
 json.comments @recipe.comments do |comment|
-  json.extract! comment, :ingredient
+  json.extract! comment, :id, :body
   json.owner comment.user.name
+  json.owner_id comment.user.id
 end

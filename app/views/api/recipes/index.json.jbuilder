@@ -1,3 +1,3 @@
-json.recipes @recipes do |recipe|
+json.array! @recipes do |recipe|
   json.extract! recipe, :id, :title, :img_url
 end

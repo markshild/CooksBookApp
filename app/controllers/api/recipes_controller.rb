@@ -1,9 +1,8 @@
-class RecipesController < ApplicationController
-
+class Api::RecipesController < ApplicationController
+  before_action :require_signed_in!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @recipes = Recipe.all
-    render :json @recipes
   end
 
   def show
@@ -71,7 +70,7 @@ class RecipesController < ApplicationController
 
   def destroy
     recipe = Recipe.find(params[:id])
-    recipe.destroy
+    recipe.try(:destroy)
     redirect_to recipes_url
   end
 

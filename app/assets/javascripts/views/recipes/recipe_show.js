@@ -1,5 +1,3 @@
-
-
 CooksBookApp.Views.RecipeShow = Backbone.CompositeView.extend({
 
   template: JST['recipes/show'],
@@ -16,14 +14,14 @@ CooksBookApp.Views.RecipeShow = Backbone.CompositeView.extend({
 
   render: function () {
     var content = this.template({
-      board: this.model
+      recipe: this.model
     });
     this.$el.html(content);
-    this.ingredients.each(this.addIngredient.bind(this));
-    this.directions.each(this.addDirection.bind(this));
-    this.tags.each(this.addTag.bind(this));
-    this.comments.each(this.addComment.bind(this));
-    this.renderCommentForm();
+    // this.ingredients.each(this.addIngredient.bind(this));
+    // this.directions.each(this.addDirection.bind(this));
+    // this.tags.each(this.addTag.bind(this));
+    // this.comments.each(this.addComment.bind(this));
+    // this.renderCommentForm();
     return this;
   },
 
