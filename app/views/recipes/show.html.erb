@@ -29,6 +29,12 @@
   <%= @recipe.servings %>
 </p>
 
+<h2>Tags</h2>
+<ul>
+  <% @recipe.tags.each do |tag| %>
+    <li><%= tag.name %></li>
+  <% end %>
+</ul>
 
 <h3>Comments</h3>
 <ul>

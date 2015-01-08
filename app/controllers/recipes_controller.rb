@@ -15,6 +15,7 @@ class RecipesController < ApplicationController
       @recipe.ingredients.new(ord: i)
       @recipe.directions.new(ord: i)
     end
+    @tags = Tag.all
   end
 
   def create
@@ -40,6 +41,7 @@ class RecipesController < ApplicationController
 
   def edit
     @recipe = Recipe.find(params[:id])
+    @tags = Tag.all
   end
 
   def update
@@ -72,7 +74,7 @@ class RecipesController < ApplicationController
 
   private
   def recipe_params
-    params.require(:recipe).permit(:title, :description, :servings, :img_url, :cooking_time)
+    params.require(:recipe).permit(:title, :description, :servings, :img_url, :cooking_time, tag_ids: [])
   end
 
   def ingredient_params

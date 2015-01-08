@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150107205423) do
+ActiveRecord::Schema.define(version: 20150108142127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,14 @@ ActiveRecord::Schema.define(version: 20150107205423) do
   add_index "ingredients", ["ord"], name: "index_ingredients_on_ord", using: :btree
   add_index "ingredients", ["recipe_id"], name: "index_ingredients_on_recipe_id", using: :btree
 
+  create_table "join_tags", force: true do |t|
+    t.integer "tag_id",    null: false
+    t.integer "recipe_id", null: false
+  end
+
+  add_index "join_tags", ["recipe_id"], name: "index_join_tags_on_recipe_id", using: :btree
+  add_index "join_tags", ["tag_id"], name: "index_join_tags_on_tag_id", using: :btree
+
   create_table "recipes", force: true do |t|
     t.string   "title"
     t.text     "description"
@@ -72,6 +80,12 @@ ActiveRecord::Schema.define(version: 20150107205423) do
 
   add_index "sessions", ["session_token"], name: "index_sessions_on_session_token", unique: true, using: :btree
   add_index "sessions", ["user_id"], name: "index_sessions_on_user_id", using: :btree
+
+  create_table "tags", force: true do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email"

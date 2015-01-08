@@ -42,7 +42,6 @@
   <% end %>
   <br>
 
-  <h4>Directions</h4>
 
   <br>
   <label>Cooking Time (Minutes)</label>
@@ -50,6 +49,13 @@
 
   <label>Servings</label>
   <input type="number" name="recipe[servings]" value="<%= recipe.servings %>">
+
+  <label>Tags</label>
+  <input type="hidden" name="recipe[tag_ids][]" value="">
+  <% tags.each do |tag|%>
+    <label><input type="checkbox" name="recipe[tag_ids][]" value="<%= tag.id %>" <%= "checked" if recipe.tag_ids.include?(tag.id) %>>
+      <%= tag.name %></label>
+  <% end %>
 
   <input type="submit" value="<%= button2 %>">
 </form>
