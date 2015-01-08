@@ -29,7 +29,7 @@ CooksBookApp.Views.RecipeShow = Backbone.CompositeView.extend({
 
   addIngredient: function (ingredient) {
     var view = new CooksBookApp.Views.DirectionShow({
-      model: direction
+      model: ingredient
     });
     this.addSubview('#direction', view);
   },
@@ -41,10 +41,24 @@ CooksBookApp.Views.RecipeShow = Backbone.CompositeView.extend({
     this.addSubview('#direction', view);
   },
 
-  renderListForm: function () {
-    var view = new TrelloClone.Views.ListForm({
-      collection: this.collection
+  addTag: function (tag) {
+    var view = new CooksBookApp.Views.TagShow({
+      model: tag
     });
-    this.addSubview('#list-form', view);
+    this.addSubview('#tag', view);
+  },
+
+  addComment: function (comment) {
+    var view = new CooksBookApp.Views.CommentShow({
+      model: comment
+    });
+    this.addSubview('#comment', view);
+  },
+
+  renderCommentForm: function () {
+    var view = new CooksBookApp.Views.CommentForm({
+      collection: this.comments
+    });
+    this.addSubview('#comment-form', view);
   }
 });

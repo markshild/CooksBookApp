@@ -1,0 +1,11 @@
+<h2>Recipes</h2>
+
+<ul class='boards'>
+  <% recipes.each(function (recipe) { %>
+    <li>
+      <a href="#/recipes/<%= recipe.id %>">
+          <%= recipe.escape("title") %>
+      </a>
+    </li>
+  <% }); %>
+</ul>

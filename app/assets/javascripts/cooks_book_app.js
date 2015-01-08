@@ -4,7 +4,7 @@ window.CooksBookApp = {
   Views: {},
   Routers: {},
   initialize: function() {
-    new CooksBookApp.Routers.Router({$rootEl.});
+    new CooksBookApp.Routers.Router({$rootEl: $('body')});
     Backbone.history.start();
   }
 };
