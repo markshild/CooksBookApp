@@ -1,1 +1,35 @@
 <h2><%= recipe.escape('title') %> </h2>
+
+<h4>Description</h4>
+<p>
+  <%= recipe.escape('description') %>
+</p>
+
+<h5>Servings: <%= recipe.get('servings') %> </h5>
+
+<div id="ingredient">
+
+</div>
+
+<h5>Cooking Time: <%= recipe.get('cooking_time') %> minutes</h5>
+
+<div id="direction">
+
+</div>
+
+<div id="tag">
+
+</div>
+
+<div id="comment">
+
+</div>
+
+<div id="comment-form">
+
+</div>
+
+<% if (recipe.user_id === current_id) { %>
+  <a href="#">Edit Recipe</a>
+  <input type="button" class="delete" value="Delete Recipe">
+<% }; %>

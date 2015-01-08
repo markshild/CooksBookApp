@@ -1,7 +1,7 @@
-CooksBookApp.Models.Tags = Backbone.Model.extend({
+CooksBookApp.Models.Tag = Backbone.Model.extend({
   urlRoot: '/api/tags',
 
-  initialize: function (models, options) {
+  initialize: function (options) {
     this.recipe = options.recipe;
   }
 

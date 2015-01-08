@@ -39,14 +39,14 @@ CooksBookApp.Routers.Router = Backbone.Router.extend({
     this._swapView(formView);
   },
 
-  // show: function (id) {
-  //   var recipe = CooksBookApp.recipes.getOrFetch(id);
-  //   var showView = new CooksBookApp.Views.RecipeShow({
-  //     model: recipe
-  //   });
-  //
-  //   this._swapView(showView);
-  // },
+  show: function (id) {
+    var recipe = CooksBookApp.recipes.getOrFetch(id);
+    var showView = new CooksBookApp.Views.RecipeShow({
+      model: recipe
+    });
+
+    this._swapView(showView);
+  },
 
   _swapView: function (view) {
     this._currentView && this._currentView.remove();

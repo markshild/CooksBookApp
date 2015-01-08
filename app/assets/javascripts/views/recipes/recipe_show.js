@@ -10,11 +10,14 @@ CooksBookApp.Views.RecipeShow = Backbone.CompositeView.extend({
     this.ingredients = this.model.ingredients();
     this.directions = this.model.directions();
     this.listenTo(this.comments, 'add delete', this.render);
+    this.listenTo(this.model, 'sync', this.render);
   },
 
   render: function () {
+    console.log(this.model)
     var content = this.template({
-      recipe: this.model
+      recipe: this.model,
+      current_id: CooksBookApp.currentUserId
     });
     this.$el.html(content);
     // this.ingredients.each(this.addIngredient.bind(this));
@@ -29,7 +32,7 @@ CooksBookApp.Views.RecipeShow = Backbone.CompositeView.extend({
     var view = new CooksBookApp.Views.DirectionShow({
       model: ingredient
     });
-    this.addSubview('#direction', view);
+    this.addSubview('#ingredient', view);
   },
 
   addDirection: function (direction) {

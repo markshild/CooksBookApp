@@ -4,6 +4,7 @@ CooksBookApp.Collections.Recipes = Backbone.Collection.extend({
   url: '/api/recipes',
 
   getOrFetch: function (id) {
+    id = parseInt(id)
     var model = this.get(id),
     recipes = this;
 

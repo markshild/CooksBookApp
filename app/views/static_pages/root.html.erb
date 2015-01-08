@@ -3,7 +3,7 @@
     CooksBookApp.initialize();
   });
 
-  CooksBookApp.curretUserId = <%= current_user.try(:id) || "null" %>;
+  CooksBookApp.currentUserId = <%= current_user.try(:id) || "null" %>;
 
 </script>
 <div id="container">
