@@ -52,7 +52,7 @@ class Api::RecipesController < ApplicationController
       @recipe.ingredients.each do |ingredient|
         ingredient.destroy
       end
-      ingredient_params.each_with_index do |ind, index|
+      ingredient_params.each_with_index do |ing, index|
         @recipe.ingredients.new({ord: index, ingredient: ing})
       end
 
@@ -66,7 +66,7 @@ class Api::RecipesController < ApplicationController
     end
 
     if @recipe.update(recipe_params)
-      redirect_to recipe_url(@recipe)
+      render :show
     else
       flash.now[:errors] = @recipe.errors.full_messages
       @tags = Tag.all

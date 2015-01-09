@@ -32,7 +32,7 @@
   <label>Tags</label>
   <input type="hidden" name="recipe[tag_ids][]" value="">
   <% tags.each( function(tag) {%>
-  <label><input type="checkbox" name="recipe[tag_ids][]" value="<%= tag.id %>" <% if (recipe.tag_ids && recipe.tag_ids.indexOf(tag.id) > -1) { %>"checked"<% } %>>
+  <label><input type="checkbox" name="recipe[tag_ids][]" value="<%= tag.id %>" <% if (recipe.get('tag_ids') && recipe.get('tag_ids').indexOf(tag.id) !== -1) { %>checked<% } %>>
     <%= tag.escape('name') %></label>
     <% }) %>
   <input type="submit" value="Submit">

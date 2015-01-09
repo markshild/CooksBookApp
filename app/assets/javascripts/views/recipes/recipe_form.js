@@ -17,7 +17,7 @@ CooksBookApp.Views.RecipeForm = Backbone.CompositeView.extend({
     'submit form': "submit",
     "click a.add-ingredient": "addIngredient",
     "click a.add-direction": "addDirection",
-    "click .remove": "remove"
+    "click .remove": "removeItem"
   },
 
   render: function () {
@@ -43,7 +43,7 @@ CooksBookApp.Views.RecipeForm = Backbone.CompositeView.extend({
     this.$('ul#directions').append(newEl);
   },
 
-  remove: function (event) {
+  removeItem: function (event) {
     event.preventDefault();
     $(event.target).parent().remove();
   },
@@ -55,7 +55,7 @@ CooksBookApp.Views.RecipeForm = Backbone.CompositeView.extend({
     this.model.save(params, {
       success: function () {
         that.collection.add(this.model, {merge: true});
-        Backbone.history.navigate('/recipes/' + that.model.id, {trigger: true})
+        Backbone.history.navigate('recipes/' + that.model.id, {trigger: true});
       }
     })
   }
