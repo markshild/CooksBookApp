@@ -5,7 +5,7 @@ json.author do
   json.extract! @recipe.user, :id, :name
 end
 
-json.tags @recipe.tags do |tag|
+json.tags @tags do |tag|
   json.extract! tag, :id, :name
 end
 

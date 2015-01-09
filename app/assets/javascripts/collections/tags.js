@@ -21,3 +21,5 @@ CooksBookApp.Collections.Tags = Backbone.Collection.extend({
     return model;
   },
 });
+
+CooksBookApp.tags = new CooksBookApp.Collections.Tags();

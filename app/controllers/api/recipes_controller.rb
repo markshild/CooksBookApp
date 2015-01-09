@@ -21,17 +21,17 @@ class Api::RecipesController < ApplicationController
     @recipe = current_user.recipes.new(recipe_params)
 
     Recipe.transaction do
-      ingredient_params.keys.each_with_index do |key, index|
-        @recipe.ingredients.new({ord: index, ingredient: ingredient_params[key]['name']})
+      ingredient_params.each_with_index do |ing, index|
+        @recipe.ingredients.new({ord: index, ingredient: ing})
       end
 
-      direction_params.keys.each_with_index do |key, index|
-        @recipe.directions.new({ord: index, step: direction_params[key]['name']})
+      direction_params.each_with_index do |step, index|
+        @recipe.directions.new({ord: index, step: step})
       end
     end
 
     if @recipe.save
-      render show:
+      render :show
     else
       flash.now[:errors] = @recipe.errors.full_messages
       @tags = Tag.all
@@ -52,16 +52,16 @@ class Api::RecipesController < ApplicationController
       @recipe.ingredients.each do |ingredient|
         ingredient.destroy
       end
-      ingredient_params.keys.each_with_index do |key, index|
-        @recipe.ingredients.new({ord: index, ingredient: ingredient_params[key]['name']})
+      ingredient_params.each_with_index do |ind, index|
+        @recipe.ingredients.new({ord: index, ingredient: ing})
       end
 
       @recipe.directions.each do |direction|
         direction.destroy
       end
 
-      direction_params.keys.each_with_index do |key, index|
-        @recipe.directions.new({ord: index, step: direction_params[key]['name']})
+      direction_params.each_with_index do |step, index|
+        @recipe.directions.new({ord: index, step: step})
       end
     end
 

@@ -1,6 +1,7 @@
 CooksBookApp.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
+    CooksBookApp.tags.fetch();
   },
 
   routes: {
@@ -14,7 +15,8 @@ CooksBookApp.Routers.Router = Backbone.Router.extend({
     var recipe = CooksBookApp.recipes.getOrFetch(id);
     var formView = new CooksBookApp.Views.RecipeForm({
       collection: CooksBookApp.recipes,
-      model: recipe
+      model: recipe,
+      tags: this.tags
     });
 
     this._swapView(formView);

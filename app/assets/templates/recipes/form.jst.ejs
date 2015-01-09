@@ -18,7 +18,7 @@
   <input type="number" name="recipe[servings]" value="<%= recipe.escape('servings') %>">
 
   <label>Cooking Time (minutes)</label>
-  <input type="text" name="recipe[cooking_time]" value="<%= recipe.escape('cooking_time') %>">
+  <input type="number" name="recipe[cooking_time]" value="<%= recipe.escape('cooking_time') %>">
 
 
   <label>Directions</label>
@@ -32,8 +32,8 @@
   <label>Tags</label>
   <input type="hidden" name="recipe[tag_ids][]" value="">
   <% tags.each( function(tag) {%>
-  <label><input type="checkbox" name="recipe[tag_ids][]" value="<%= tag.id %>" <% if (recipe.tag_ids.indexOf(tag.id) > -1) { %>"checked"<% } %>>
-    <%= tag.name %></label>
+  <label><input type="checkbox" name="recipe[tag_ids][]" value="<%= tag.id %>" <% if (recipe.tag_ids && recipe.tag_ids.indexOf(tag.id) > -1) { %>"checked"<% } %>>
+    <%= tag.escape('name') %></label>
     <% }) %>
-
+  <input type="submit" value="Submit">
 </form>
