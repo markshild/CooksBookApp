@@ -1,0 +1,4 @@
+<% comments.each( function(comment) { %>
+  <li><%= comment.escape('body') %> <span><%= comment.escape('owner')
+  %></span> <% if (comment.get('owner_id') === current_id) { %> <button data-id="<%= comment.id %>" class="comment-delete">X</button><% } %></li>
+<% });  %>

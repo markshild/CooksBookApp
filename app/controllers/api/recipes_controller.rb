@@ -11,11 +11,10 @@ class Api::RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    3.times do |i|
-      @recipe.ingredients.new(ord: i)
-      @recipe.directions.new(ord: i)
-    end
+    @recipe.ingredients.new(ord: 0)
+    @recipe.directions.new(ord: 0)
     @tags = Tag.all
+    render :form
   end
 
   def create
@@ -32,7 +31,7 @@ class Api::RecipesController < ApplicationController
     end
 
     if @recipe.save
-      redirect_to recipe_url(@recipe)
+      render show: @recipe 
     else
       flash.now[:errors] = @recipe.errors.full_messages
       @tags = Tag.all
@@ -49,13 +48,20 @@ class Api::RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
 
     Recipe.transaction do
-      ingredient_params.keys.each do |key|
-        @ingredient = Ingredient.find(ingredient_params[key]['id'])
-        @ingredient.update({ord: ingredient_params[key]['ord'], ingredient: ingredient_params[key]['name']})
+
+      @recipe.ingredients.each do |ingredient|
+        ingredient.destroy
       end
+      ingredient_params.keys.each do |key|
+        @recipe.ingredients.new({ord: ingredient_params[key]['ord'], ingredient: ingredient_params[key]['name']})
+      end
+
+      @recipe.directions.each do |direction|
+        direction.destroy
+      end
+
       direction_params.keys.each do |key|
-        @direction = Direction.find(direction_params[key]['id'])
-        @direction.update({ord: direction_params[key]['ord'], step: direction_params[key]['name']})
+        @recipe.directions.new({ord: direction_params[key]['ord'], step: direction_params[key]['name']})
       end
     end
 
