@@ -14,7 +14,10 @@ CooksBookApp.Views.RecipeForm = Backbone.CompositeView.extend({
   },
 
   events: {
-    'submit': "submit"
+    'submit': "submit",
+    "click a.add-ingredient": "addIngredient",
+    "click a.add-direction": "addDirection",
+    "click .remove": "remove"
   },
 
   render: function () {
@@ -28,5 +31,21 @@ CooksBookApp.Views.RecipeForm = Backbone.CompositeView.extend({
     return this;
   },
 
+  addIngredient: function (event) {
+    event.preventDefault();
+    var newEl = $('<li><input type="text" name="ingredient[]" value=""><span class="remove">X</span></li>');
+    this.$('#ingredient').append(newEl);
+  },
+
+  addDirection: function (event) {
+    event.preventDefault();
+    var newEl = $('<li><input type="text" name="direction[]" value=""><span class="remove">X</span></li>');
+    this.$('#direction').append(newEl);
+  },
+
+  remove: function (event) {
+    event.preventDefault();
+    $(event.target).parent().remove();
+  }
 
 });

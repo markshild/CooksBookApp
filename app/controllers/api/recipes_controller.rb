@@ -21,17 +21,17 @@ class Api::RecipesController < ApplicationController
     @recipe = current_user.recipes.new(recipe_params)
 
     Recipe.transaction do
-      ingredient_params.keys.each do |key|
-        @recipe.ingredients.new({ord: ingredient_params[key]['ord'], ingredient: ingredient_params[key]['name']})
+      ingredient_params.keys.each_with_index do |key, index|
+        @recipe.ingredients.new({ord: index, ingredient: ingredient_params[key]['name']})
       end
 
-      direction_params.keys.each do |key|
-        @recipe.directions.new({ord: direction_params[key]['ord'], step: direction_params[key]['name']})
+      direction_params.keys.each_with_index do |key, index|
+        @recipe.directions.new({ord: index, step: direction_params[key]['name']})
       end
     end
 
     if @recipe.save
-      render show: @recipe 
+      render show:
     else
       flash.now[:errors] = @recipe.errors.full_messages
       @tags = Tag.all
@@ -52,16 +52,16 @@ class Api::RecipesController < ApplicationController
       @recipe.ingredients.each do |ingredient|
         ingredient.destroy
       end
-      ingredient_params.keys.each do |key|
-        @recipe.ingredients.new({ord: ingredient_params[key]['ord'], ingredient: ingredient_params[key]['name']})
+      ingredient_params.keys.each_with_index do |key, index|
+        @recipe.ingredients.new({ord: index, ingredient: ingredient_params[key]['name']})
       end
 
       @recipe.directions.each do |direction|
         direction.destroy
       end
 
-      direction_params.keys.each do |key|
-        @recipe.directions.new({ord: direction_params[key]['ord'], step: direction_params[key]['name']})
+      direction_params.keys.each_with_index do |key, index|
+        @recipe.directions.new({ord: index, step: direction_params[key]['name']})
       end
     end
 
@@ -77,7 +77,7 @@ class Api::RecipesController < ApplicationController
   def destroy
     recipe = Recipe.find(params[:id])
     recipe.try(:destroy)
-    redirect_to recipes_url
+    render json: {}
   end
 
   private

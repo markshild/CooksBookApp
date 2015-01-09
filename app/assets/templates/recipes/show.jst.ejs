@@ -34,6 +34,6 @@
 </div>
 
 <% if (recipe.user_id === current_id) { %>
-  <a href="#">Edit Recipe</a>
+  <a href="#/recipes/<%= recipe.id %>/edit">Edit Recipe</a>
   <input type="button" class="delete" value="Delete Recipe">
 <% }; %>

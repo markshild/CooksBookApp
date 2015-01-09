@@ -12,6 +12,10 @@ CooksBookApp.Views.RecipeShow = Backbone.CompositeView.extend({
     this.listenTo(this.model, 'sync change reset', this.render);
   },
 
+  events: {
+    "click .delete": "deleteRecipe"
+  },
+
   render: function () {
     var content = this.template({
       recipe: this.model,
@@ -24,6 +28,12 @@ CooksBookApp.Views.RecipeShow = Backbone.CompositeView.extend({
     this.addComments(this.comments);
     this.renderCommentForm();
     return this;
+  },
+
+  deleteRecipe: function (event) {
+    event.preventDefault();
+    this.model.destroy();
+    Backbone.history.navigate('', {trigger: true})
   },
 
   addIngredients: function (ingredients) {

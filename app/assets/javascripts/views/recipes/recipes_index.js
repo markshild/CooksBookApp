@@ -10,7 +10,8 @@ CooksBookApp.Views.RecipesIndex = Backbone.View.extend({
 
   render: function () {
     var content = this.template({
-      recipes: this.collection
+      recipes: this.collection,
+      current_id: CooksBookApp.currentUserId
     });
 
     this.$el.html(content);

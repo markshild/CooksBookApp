@@ -8,13 +8,14 @@
   <label>Ingredients</label>
   <ul id="ingredients">
     <% ingredients.each( function(ingredient) { %>
-      <li><input type="text" name="ingredient[]" value="<%= ingredient.escape('ingredient') %>"><span class="remove-ing">X</span></li>
+      <li><input type="text" name="ingredient[]" value="<%= ingredient.escape('ingredient') %>"><span class="remove">X</span></li>
     <% }); %>
   </ul>
-  <button id="ingredient" class="add">Add Ingredient</button>
+  <a href="javascript:void(0)" class="add-ingredient">Add Ingredient</a>
+
 
   <label>Servings</label>
-  <input type="number" name="recipe[dervings]" value="<%= recipe.escape('servings') %>">
+  <input type="number" name="recipe[servings]" value="<%= recipe.escape('servings') %>">
 
   <label>Cooking Time (minutes)</label>
   <input type="text" name="recipe[cooking_time]" value="<%= recipe.escape('cooking_time') %>">
@@ -23,15 +24,15 @@
   <label>Directions</label>
   <ul id="directions">
     <% directions.each( function(direction) { %>
-      <li><input type="text" name="direction[]" value="<%= direction.escape('step') %>"> <span class="remove-dir">X</span></li>
+      <li><input type="text" name="direction[]" value="<%= direction.escape('step') %>"> <span class="remove">X</span></li>
     <% }); %>
   </ul>
-  <button id="direction" class="add">Add Step</button>
+  <a href="javascript:void(0)" class="add-direction">Add Direction</a>
 
   <label>Tags</label>
   <input type="hidden" name="recipe[tag_ids][]" value="">
-  <% tags.each function(tag) {%>
-  <label><input type="checkbox" name="recipe[tag_ids][]" value="<%= tag.id %>" <%= "checked" if recipe.tag_ids.include?(tag.id) %>>
+  <% tags.each( function(tag) {%>
+  <label><input type="checkbox" name="recipe[tag_ids][]" value="<%= tag.id %>" <% if (recipe.tag_ids.indexOf(tag.id) > -1) { %>"checked"<% } %>>
     <%= tag.name %></label>
     <% }) %>
 

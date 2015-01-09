@@ -30,7 +30,7 @@ CooksBookApp.Routers.Router = Backbone.Router.extend({
   },
 
   new: function () {
-    var newRecipe = new CooksBookApp.Models.recipe();
+    var newRecipe = new CooksBookApp.Models.Recipe();
     var formView = new CooksBookApp.Views.RecipeForm({
       collection: CooksBookApp.recipes,
       model: newRecipe
