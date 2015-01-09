@@ -6,6 +6,7 @@
   <textarea name="recipe[description]"><%= recipe.escape('description') %></textarea>
 
   <label>Ingredients</label>
+  <input type="hidden" name="ingredient[]" value="">
   <ul id="ingredients">
     <% ingredients.each( function(ingredient) { %>
       <li><input type="text" name="ingredient[]" value="<%= ingredient.escape('ingredient') %>"><span class="remove">X</span></li>
@@ -22,6 +23,7 @@
 
 
   <label>Directions</label>
+  <input type="hidden" name="direction[]" value="">
   <ul id="directions">
     <% directions.each( function(direction) { %>
       <li><input type="text" name="direction[]" value="<%= direction.escape('step') %>"> <span class="remove">X</span></li>

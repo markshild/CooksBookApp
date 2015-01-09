@@ -22,10 +22,12 @@ class Api::RecipesController < ApplicationController
 
     Recipe.transaction do
       ingredient_params.each_with_index do |ing, index|
+        next if ing.blank?
         @recipe.ingredients.new({ord: index, ingredient: ing})
       end
 
       direction_params.each_with_index do |step, index|
+        next if step.blank?
         @recipe.directions.new({ord: index, step: step})
       end
     end
@@ -53,6 +55,7 @@ class Api::RecipesController < ApplicationController
         ingredient.destroy
       end
       ingredient_params.each_with_index do |ing, index|
+        next if ing.blank?
         @recipe.ingredients.new({ord: index, ingredient: ing})
       end
 
@@ -61,6 +64,7 @@ class Api::RecipesController < ApplicationController
       end
 
       direction_params.each_with_index do |step, index|
+        next if step.blank?
         @recipe.directions.new({ord: index, step: step})
       end
     end
@@ -68,9 +72,8 @@ class Api::RecipesController < ApplicationController
     if @recipe.update(recipe_params)
       render :show
     else
-      flash.now[:errors] = @recipe.errors.full_messages
       @tags = Tag.all
-      render :edit
+      render json: @recipe.errors.full_messages, status: 422
     end
   end
 
@@ -90,6 +93,10 @@ class Api::RecipesController < ApplicationController
   end
 
   def direction_params
-    params.require(:direction)
+    if params.require(:direction)
+      params[:direction]
+    else
+      []
+    end
   end
 end
