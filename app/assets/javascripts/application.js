@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-
+//= require jquery.serializejson.min.js
 //= require underscore
 //= require backbone
 //= require cooks_book_app

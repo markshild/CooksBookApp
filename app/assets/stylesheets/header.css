@@ -1,0 +1,29 @@
+header {
+  display: block;
+  position: fixed;
+  background: red;
+  top: 0;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+h6 {
+  font-family: Futura;
+  font-size: 20px;
+  margin: 0;
+  float: left;
+}
+
+header form {
+  float: right;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+body {
+  margin-top: 25px;
+}

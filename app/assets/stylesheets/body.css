@@ -1,0 +1,13 @@
+body h2 {
+  font-size: 36px;
+}
+
+body h5 {
+  font-size: 24px;
+}
+
+input {
+  border-radius: 5px;
+  background: lightsteelblue;
+  padding: 3px;
+}
