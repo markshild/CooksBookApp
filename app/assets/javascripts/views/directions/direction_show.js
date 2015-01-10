@@ -1,6 +1,6 @@
 CooksBookApp.Views.DirectionShow = Backbone.View.extend({
   template: JST['directions/show'],
-  tagName: 'ul',
+  tagName: 'ol',
 
   events: {
 

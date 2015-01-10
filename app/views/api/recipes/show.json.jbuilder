@@ -9,6 +9,10 @@ json.ingredients @recipe.ingredients do |ingredient|
   json.extract! ingredient, :id, :ingredient, :ord
 end
 
+json.tags @recipe.tags do |tag|
+  json.extract! tag, :id, :name
+end
+
 json.directions @recipe.directions do |direction|
   json.extract! direction, :id, :step, :ord
 end

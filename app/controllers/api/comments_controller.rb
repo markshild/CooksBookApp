@@ -1,9 +1,8 @@
 class Api::CommentsController < ApplicationController
   def create
-    recipe = Recipe.find(params[:recipe_id])
+    recipe = Recipe.find(params[:comment][:recipe_id])
     @comment = recipe.comments.new(comment_params)
     @comment.user_id = current_user.id
-
     if @comment.save
       render :show
     else

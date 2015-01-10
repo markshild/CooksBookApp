@@ -91,12 +91,16 @@ class Api::RecipesController < ApplicationController
   end
 
   def ingredient_params
-    params.require(:ingredient)
+    if params.require(:recipe).require(:ingredient)
+      params.require(:recipe).require(:ingredient)
+    else
+      []
+    end
   end
 
   def direction_params
-    if params.require(:direction)
-      params[:direction]
+    if params.require(:recipe).require(:direction)
+      params.require(:recipe).require(:direction)
     else
       []
     end

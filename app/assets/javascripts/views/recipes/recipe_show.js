@@ -7,6 +7,7 @@ CooksBookApp.Views.RecipeShow = Backbone.CompositeView.extend({
   initialize: function () {
     this.comments = this.model.comments();
     this.ingredients = this.model.ingredients();
+    this.tags = this.model.tags();
     this.directions = this.model.directions();
     this.listenTo(this.model, 'sync change reset', this.render);
   },
@@ -23,7 +24,7 @@ CooksBookApp.Views.RecipeShow = Backbone.CompositeView.extend({
     this.$el.html(content);
     this.addIngredients(this.ingredients);
     this.addDirections(this.directions);
-    this.addTags(CooksBookApp.tags);
+    this.addTags(this.tags);
     this.addComments(this.comments);
     this.renderCommentForm();
     return this;
