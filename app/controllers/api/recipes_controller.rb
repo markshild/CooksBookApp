@@ -4,6 +4,7 @@ class Api::RecipesController < ApplicationController
   wrap_parameters false
 
   def index
+    @tags = Tag.joins(:join_tags).group('tag.id').order('COUNT (join_tags.tag_id) DESC').limit(3)
     @recipes = Recipe.all
   end
 

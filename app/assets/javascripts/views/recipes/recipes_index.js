@@ -1,4 +1,4 @@
-CooksBookApp.Views.RecipesIndex = Backbone.View.extend({
+CooksBookApp.Views.RecipesIndex = Backbone.CompositeView.extend({
 
   template: JST['recipes/index'],
 

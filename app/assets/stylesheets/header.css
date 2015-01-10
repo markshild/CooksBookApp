@@ -14,6 +14,8 @@ header h6 {
   float: left;
 }
 
+
+
 header h6:before {
   content: "Welcome "
 }
@@ -24,6 +26,15 @@ header form {
 
 header a {
   float: right;
+}
+
+header a.add {
+  float: right;
+  font-size: 36px;
+  text-decoration: none;
+  margin-bottom: -7px;
+  margin-top: -6px;
+  margin-right: 8px;
 }
 
 a:hover {

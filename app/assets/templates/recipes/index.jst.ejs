@@ -1,6 +1,6 @@
 <h2>Recipes</h2>
 
-<ul class='boards'>
+<ul class='recipes'>
   <% recipes.each(function (recipe) { %>
     <li>
       <a href="#/recipes/<%= recipe.id %>">
@@ -9,7 +9,3 @@
     </li>
   <% }); %>
 </ul>
-
-<% if (current_id !== -1) { %>
-  <a href="#/recipes/new">Add a Recipe!</a>
-<% } %>
