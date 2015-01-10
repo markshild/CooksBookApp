@@ -31,6 +31,10 @@ gem 'bcrypt', require: 'bcrypt'
 
 gem 'backbone-on-rails'
 
+gem 'figaro'
+gem 'paperclip', "~> 4.2"
+gem 'aws-sdk'
+
 group :development do
   gem 'spring'
   gem 'pry-rails'

@@ -7,17 +7,38 @@ header {
   margin-bottom: 20px;
 }
 
-h6 {
+header h6 {
   font-family: Futura;
   font-size: 20px;
   margin: 0;
   float: left;
 }
 
+header h6:before {
+  content: "Welcome "
+}
+
 header form {
   float: right;
 }
 
+header a {
+  float: right;
+}
+
+a:hover {
+  cursor: pointer;
+  color: blue;
+}
+
+header a.logo {
+  font-size: 24px;
+  cursor: pointer;
+  color: black;
+  float: left;
+  margin-right: 15px;
+  font-style: none;
+}
 .group:after {
   content: "";
   display: block;

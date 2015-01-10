@@ -1,6 +1,8 @@
 class Api::RecipesController < ApplicationController
   before_action :require_signed_in!, only: [:new, :create, :edit, :update, :destroy]
 
+  wrap_parameters false
+
   def index
     @recipes = Recipe.all
   end

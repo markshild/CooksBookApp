@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   has_many :recipes
   has_many :sessions
   has_many :comments, dependent: :destroy
+  has_many :favorites
+  has_many :favorite_recipes, through: :favorites, source: :recipe
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)

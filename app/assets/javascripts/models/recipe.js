@@ -1,6 +1,10 @@
 CooksBookApp.Models.Recipe = Backbone.Model.extend({
   urlRoot: '/api/recipes',
 
+  toJSON: function() {
+    return { recipe: _.clone( this.attributes ) }
+  },
+
   comments: function () {
     if(!this._comments) {
       this._comments = new CooksBookApp.Collections.Comments([], { recipe: this });

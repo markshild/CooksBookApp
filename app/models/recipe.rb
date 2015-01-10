@@ -6,4 +6,6 @@ class Recipe < ActiveRecord::Base
   has_many :directions, inverse_of: :recipe, dependent: :destroy
   has_many :join_tags, dependent: :destroy
   has_many :tags, through: :join_tags, source: :tag, inverse_of: :recipes
+  has_many :favorites
+  has_many :favoriters, through: :favorites, source: :user
 end
