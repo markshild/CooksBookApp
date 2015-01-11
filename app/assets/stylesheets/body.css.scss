@@ -1,0 +1,90 @@
+body h2 {
+  font-size: 36px;
+  padding-top: 5px;
+}
+
+body h5 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  min-height: 1000px;
+  min-width: 700px;
+}
+
+input {
+  border-radius: 5px;
+  background: lightsteelblue;
+  padding: 3px;
+}
+
+section.sign {
+  display: block;
+  margin: auto;
+  width: 500px;
+  border-radius: 8px;
+  border: 2px solid grey;
+  margin-top: 100px;
+}
+
+form.sign {
+  margin: 0 0 20px 20px;
+}
+
+form.sign * {
+  display: block;
+  background: transparent;
+}
+
+section.background-pic {
+  position: relative;
+  display: block;
+  margin-top: 30px;
+  border: 1px solid transparent;
+  max-height: 1200px;
+
+}
+
+section.background-pic img {
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -10;
+}
+
+form.sign label {
+  margin-bottom: 5px;
+  text-shadow: 0 0 8px white;
+}
+
+form.sign input {
+  background: lightgray;
+  padding: 5px 5px;
+  margin-bottom: 5px;
+}
+
+form.sign input:active {
+  outline: none;
+}
+
+form.sign input.button {
+  background: green;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 6px 5px;
+  box-sahdow: 3px 0 darkgray;
+  box-shadow: 0 0 5px white;
+}
+
+form.sign input.button:active {
+
+}
+
+h2.sign {
+  display: block;
+  margin: auto;
+  width: 140px;
+  text-shadow: 0 0 10px white;
+}

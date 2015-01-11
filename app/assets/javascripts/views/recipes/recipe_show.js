@@ -13,7 +13,9 @@ CooksBookApp.Views.RecipeShow = Backbone.CompositeView.extend({
   },
 
   events: {
-    "click .delete": "deleteRecipe"
+    "click .delete": "deleteRecipe",
+    "click .add-favorite": "addFavorite",
+    "click .delete-favorite": "deleteFavorite"
   },
 
   render: function () {
@@ -28,6 +30,16 @@ CooksBookApp.Views.RecipeShow = Backbone.CompositeView.extend({
     this.addComments(this.comments);
     this.renderCommentForm();
     return this;
+  },
+
+  deleteRecipe: function (event) {
+    event.preventDefault();
+    this.model.destroy();
+    Backbone.history.navigate('', {trigger: true})
+  },
+
+  favorite: function () {
+
   },
 
   deleteRecipe: function (event) {

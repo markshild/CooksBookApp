@@ -1,8 +1,12 @@
-<h2>Sign Up</h2>
+<section class="background-pic">
+  <img class="group" src="http://i.imgur.com/ZrLkBJe.jpg" alt="" />
+  <section class="sign">
+
+    <h2 class="sign">Sign Up</h2>
 
 <%= render "layouts/errors" %>
 
-<form action="<%= users_url %>" method="post">
+<form class="sign" action="<%= users_url %>" method="post">
   <%= auth_token_input %>
   <label>
     Name
@@ -24,5 +28,7 @@
     </label>
     <input type="password" name="user[password_confirmation]" value="">
 
-  <input type="submit" value="Sign Up">
+  <input class="button" type="submit" value="Sign Up">
 </form>
+</section>
+</section>

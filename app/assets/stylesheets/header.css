@@ -11,6 +11,7 @@ header h6 {
   font-family: Futura;
   font-size: 20px;
   margin: 0;
+  margin-top: 5px;
   float: left;
 }
 
@@ -20,6 +21,7 @@ header h6:before {
 
 header form {
   float: right;
+  margin-top: 5px;
 }
 
 header a {
@@ -37,7 +39,7 @@ header a.add {
 
 a:hover {
   cursor: pointer;
-  color: blue;
+  color: white;
 }
 
 header a.logo {
@@ -46,7 +48,10 @@ header a.logo {
   color: black;
   float: left;
   margin-right: 15px;
-  font-style: none;
+  text-decoration: none;
+  color: white;
+  border-right: 1px solid white;
+  padding-right: 5px;
 }
 .group:after {
   content: "";

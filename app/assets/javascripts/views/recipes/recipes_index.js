@@ -8,6 +8,10 @@ CooksBookApp.Views.RecipesIndex = Backbone.CompositeView.extend({
     this.listenTo(this.collection, 'sync', this.render);
   },
 
+  events: {
+    "click .tag": "renderTag"
+  },
+
   render: function () {
     var content = this.template({
       recipes: this.collection,
