@@ -37,6 +37,14 @@ CooksBookApp.Models.Recipe = Backbone.Model.extend({
     return this._tags;
   },
 
+  author: function (response) {
+    if(!this._author) {
+      this._author = response;
+    }
+
+    return this._tags;
+  },
+
   parse: function (response) {
     if(response.comments) {
       this.comments().set(response.comments, { parse: true });
@@ -54,7 +62,10 @@ CooksBookApp.Models.Recipe = Backbone.Model.extend({
       this.tags().set(response.tags, { parse: true });
       delete response.tags;
     }
-
+    if(response.author) {
+      this.author(response.author);
+      delete response.author;
+    }
 
     return response;
   }

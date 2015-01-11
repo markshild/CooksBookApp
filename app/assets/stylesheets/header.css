@@ -14,8 +14,6 @@ header h6 {
   float: left;
 }
 
-
-
 header h6:before {
   content: "Welcome "
 }

@@ -1,4 +1,7 @@
 <h2><%= recipe.escape('title') %> </h2>
+<% if (recipe._author) { %>
+<h6>by <%= recipe._author.name %> </h6>
+<% } %>
 
 <h5>Description</h4>
 <p>
@@ -32,8 +35,9 @@
 <div id="comment-form">
 
 </div>
-
-<% if (recipe.user_id === current_id) { %>
-  <a href="#/recipes/<%= recipe.id %>/edit">Edit Recipe</a>
-  <input type="button" class="delete" value="Delete Recipe">
+<% if (recipe._author) { %>
+  <% if (recipe._author.id === current_id) { %>
+    <a href="#/recipes/<%= recipe.id %>/edit">Edit Recipe</a>
+    <input type="button" class="delete" value="Delete Recipe">
+  <% }; %>
 <% }; %>
