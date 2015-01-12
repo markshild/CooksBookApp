@@ -22,7 +22,6 @@ class Api::RecipesController < ApplicationController
 
   def create
     @recipe = current_user.recipes.new(recipe_params)
-
     Recipe.transaction do
       ingredient_params.each_with_index do |ing, index|
         next if ing.blank?
@@ -40,7 +39,7 @@ class Api::RecipesController < ApplicationController
     else
       flash.now[:errors] = @recipe.errors.full_messages
       @tags = Tag.all
-      render :new
+      render json: {}
     end
   end
 
@@ -51,7 +50,6 @@ class Api::RecipesController < ApplicationController
 
   def update
     @recipe = Recipe.find(params[:id])
-
     Recipe.transaction do
 
       @recipe.ingredients.each do |ingredient|
@@ -88,7 +86,7 @@ class Api::RecipesController < ApplicationController
 
   private
   def recipe_params
-    params.require(:recipe).permit(:title, :description, :servings, :img_url, :cooking_time, tag_ids: [])
+    params.require(:recipe).require(:recipe).permit(:title, :description, :servings, :img_url, :cooking_time, tag_ids: [])
   end
 
   def ingredient_params
