@@ -28,7 +28,9 @@
 
 <h5>Tags</h5>
 <div id="tag">
-
+  <% tags.each( function(tag) { %>
+    <li><%= tag.escape('name') %></li>
+    <% });  %>
 </div>
 
 <h5>Comments</h5>

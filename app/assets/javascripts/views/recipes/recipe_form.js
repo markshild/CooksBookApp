@@ -62,8 +62,6 @@ CooksBookApp.Views.RecipeForm = Backbone.CompositeView.extend({
         that.collection.add(this.model, {merge: true});
 
         delete that.model._picture;
-        delete that.model._ingredient;
-        delete that.model._direction;
 
         Backbone.history.navigate('recipes/' + that.model.id, {trigger: true});
       }

@@ -1,11 +1,14 @@
-<h2>Recipes</h2>
+<h2Top Tags</h2>
 
-<ul class='recipes'>
-  <% recipes.each(function (recipe) { %>
-    <li>
-      <a href="#/recipes/<%= recipe.id %>">
-          <%= recipe.escape('title') %>
+<ul class='tags'>
+  <% tags.each(function (tag) { %>
+    <li class="tag" data-id="<%= tag.id %>">
+          <%= tag.escape('name') %>
       </a>
     </li>
   <% }); %>
 </ul>
+
+<div id="tag-show">
+
+</div>

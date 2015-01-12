@@ -23,9 +23,10 @@ CooksBookApp.Routers.Router = Backbone.Router.extend({
   },
 
   index: function () {
-    CooksBookApp.recipes.fetch();
+    var tags = new CooksBookApp.Collections.Tags();
+    tags.fetch({ url: '/api/tags/top' });
     var indexView = new CooksBookApp.Views.RecipesIndex({
-      collection: CooksBookApp.recipes
+      collection: tags
     });
 
     this._swapView(indexView);
@@ -42,8 +43,8 @@ CooksBookApp.Routers.Router = Backbone.Router.extend({
   },
 
   show: function (id) {
-    console.log('showView')
     var recipe = CooksBookApp.recipes.getOrFetch(id);
+    debugger
     var showView = new CooksBookApp.Views.RecipeShow({
       model: recipe
     });

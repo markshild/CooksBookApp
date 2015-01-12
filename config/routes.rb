@@ -12,7 +12,9 @@ Rails.application.routes.draw do
     resources :recipes
     resources :comments, only: [:create, :destroy, :show]
     resources :favorites, only: [:create, :destroy]
-    resources :tags, only: [:show, :index]
+    resources :tags, only: [:show, :index] do
+      get "top", on: :collection
+    end
     resources :directions, only: [:create, :update, :destroy, :show]
     resources :ingredients, only: [:create, :update, :destroy, :show]
   end
