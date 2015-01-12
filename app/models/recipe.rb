@@ -8,4 +8,8 @@ class Recipe < ActiveRecord::Base
   has_many :tags, through: :join_tags, source: :tag, inverse_of: :recipes
   has_many :favorites
   has_many :favoriters, through: :favorites, source: :user
+
+  has_attached_file :picture, default_url: "yum.png"
+  validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
+
 end

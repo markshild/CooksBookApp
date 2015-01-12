@@ -2,7 +2,19 @@ CooksBookApp.Models.Recipe = Backbone.Model.extend({
   urlRoot: '/api/recipes',
 
   toJSON: function() {
-    return { recipe: _.clone( this.attributes ) }
+    var json = {recipe: _.clone(this.attributes)};
+
+    if (this._picture) {
+      json.recipe.picture = this._picture;
+    }
+    if (this._ingredient) {
+      json.ingredient = this._ingredient;
+    }
+    if (this._direction) {
+      json.direction = this._direction;
+    }
+
+    return json;
   },
 
   comments: function () {

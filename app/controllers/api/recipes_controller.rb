@@ -86,20 +86,20 @@ class Api::RecipesController < ApplicationController
 
   private
   def recipe_params
-    params.require(:recipe).require(:recipe).permit(:title, :description, :servings, :img_url, :cooking_time, tag_ids: [])
+    params.require(:recipe).permit(:title, :description, :servings, :cooking_time, :picture, tag_ids: [])
   end
 
   def ingredient_params
-    if params.require(:recipe).require(:ingredient)
-      params.require(:recipe).require(:ingredient)
+    if params.require(:ingredient)
+      params.require(:ingredient)
     else
       []
     end
   end
 
   def direction_params
-    if params.require(:recipe).require(:direction)
-      params.require(:recipe).require(:direction)
+    if params.require(:direction)
+      params.require(:direction)
     else
       []
     end

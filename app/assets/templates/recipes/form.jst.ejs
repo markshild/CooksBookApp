@@ -5,6 +5,15 @@
   <label>Description</label>
   <textarea name="recipe[description]"><%= recipe.escape('description') %></textarea>
 
+  <label>Picture</label>
+  <input type="file" name="recipe[picture]" id="input-recipe-picture">
+  <div class="pic-preview">
+
+  <img src="" width="50" id="preview-recipe-picture">
+
+  </div>
+
+
   <label>Ingredients</label>
   <input type="hidden" name="ingredient[]" value="">
   <ul id="ingredients">

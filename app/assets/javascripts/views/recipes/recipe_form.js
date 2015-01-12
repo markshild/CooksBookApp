@@ -11,13 +11,15 @@ CooksBookApp.Views.RecipeForm = Backbone.CompositeView.extend({
     this.listenTo(CooksBookApp.tags, "sync", this.render)
     this.listenTo(this.comments, 'add delete', this.render);
     this.listenTo(this.model, 'sync', this.render);
+    console.log("anything");
   },
 
   events: {
     'submit form': "submit",
     "click a.add-ingredient": "addIngredient",
     "click a.add-direction": "addDirection",
-    "click .remove": "removeItem"
+    "click .remove": "removeItem",
+    "change #input-recipe-picture": "fileInputChange"
   },
 
   render: function () {
@@ -50,14 +52,47 @@ CooksBookApp.Views.RecipeForm = Backbone.CompositeView.extend({
 
   submit: function (event) {
     event.preventDefault();
-    var params = this.$('form').serializeJSON();
+    var params = this.$('form').serializeJSON().recipe;
+    this.model._ingredient = this.$('form').serializeJSON().ingredient
+    this.model._direction = this.$('form').serializeJSON().direction
     var that = this;
+    debugger
     this.model.save(params, {
       success: function () {
         that.collection.add(this.model, {merge: true});
+
+        delete that.model._picture;
+        delete that.model._ingredient;
+        delete that.model._direction;
+
         Backbone.history.navigate('recipes/' + that.model.id, {trigger: true});
       }
     })
+  },
+
+  fileInputChange: function(event){
+
+    var that = this;
+    var file = event.currentTarget.files[0];
+    var reader = new FileReader();
+
+    reader.onloadend = function(){
+      that._updatePreview(reader.result);
+      that.model._picture = reader.result;
+
+    }
+
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      this._updatePreview("");
+      delete this.model._picture;
+
+    }
+  },
+
+  _updatePreview: function(src){
+    this.$el.find("#preview-recipe-picture").attr("src", src);
   }
 
 });
