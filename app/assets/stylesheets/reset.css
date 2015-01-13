@@ -10,4 +10,8 @@ header, h1, h2, h3, h4, h5, h6, a, ul, li, input, button, div, span, body, p {
   font-family: "FuturaExtended";
   background: transparent;
   font-size: inherit;
+  color: inherit;
+  vertical-align: inherit;
+  font-size: inherit;
+  text-decoration: none;
 }

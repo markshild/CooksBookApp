@@ -1,40 +1,50 @@
 header {
   display: block;
-  position: fixed;
   background: red;
   top: 0;
   width: 100%;
-  margin-bottom: 20px;
 }
 
 header h6 {
   font-family: "FuturaExtended";
   font-size: 20px;
-  margin: 0;
+  padding-top: 5px;
+  float: right;
+  position: relative
+}
+
+header nav {
+  float: right;
+}
+
+header > form {
+  float: right;
   margin-top: 5px;
+}
+
+header nav .dropdown {
+  float: left;
+  position: relative;
+}
+
+div.dropdown a, form {
   float: left;
 }
 
-header h6:before {
-  content: "Welcome "
-}
-
-header form {
-  float: right;
-  margin-top: 5px;
-}
-
-header a {
-  float: right;
+div.dropdown a {
+  font-size: 20px;
+  padding-top: 5px;
 }
 
 header a.add {
-  float: right;
+  float: left;
   font-size: 36px;
   text-decoration: none;
   margin-bottom: -7px;
   margin-top: -6px;
   margin-right: 8px;
+  border: 1px solid white;
+  padding: 0 10px;
 }
 
 a:hover {
@@ -57,8 +67,4 @@ header a.logo {
   content: "";
   display: block;
   clear: both;
-}
-
-body {
-  margin-top: 25px;
 }

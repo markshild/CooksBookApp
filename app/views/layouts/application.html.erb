@@ -9,9 +9,14 @@
 <header class="group">
   <a href="#" class="logo">CooksBook</a>
   <% if signed_in? %>
-  <h6 class="name"><%= current_user.name %></h6>
-  <%= button_to "Sign Out", session_url, :method => :delete %>
-  <a class="add "href="#/recipes/new">+</a>
+  <nav class="user-nav">
+    <h6 class="name"><%= current_user.name %></h6>
+    <div class="dropdown">
+      <a href="#/users/current">My Page</a>
+      <%= button_to "Sign Out", session_url, :method => :delete %>
+    </div>
+    <a class="add "href="#/recipes/new">+</a>
+  </nav>
   <% else %>
   <%= link_to "Sign In", new_session_url %>
   <%= link_to "Sign Up", new_user_url %>
