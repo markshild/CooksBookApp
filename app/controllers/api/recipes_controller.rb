@@ -9,6 +9,9 @@ class Api::RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
+    if signed_in?
+      @current_favorite = current_user.favorites.where(recipe_id: params[:id]).first
+    end
   end
 
   def new

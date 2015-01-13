@@ -1,8 +1,13 @@
+@font-face {
+  font-family: "FuturaExtended";
+  src: url('/assets/fonts/FuturaExtended.ttf') format('truetype');
+}
+
 header, h1, h2, h3, h4, h5, h6, a, ul, li, input, button, div, span, body, p {
   margin: 0;
   padding: 0;
   border: 0;
-  font-family: Futura, sans-serif;
+  font-family: "FuturaExtended";
   background: transparent;
   font-size: inherit;
 }

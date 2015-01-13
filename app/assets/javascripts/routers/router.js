@@ -54,7 +54,6 @@ CooksBookApp.Routers.Router = Backbone.Router.extend({
 
   show: function (id) {
     var recipe = CooksBookApp.recipes.getOrFetch(id);
-    debugger
     var showView = new CooksBookApp.Views.RecipeShow({
       model: recipe
     });

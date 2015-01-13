@@ -87,6 +87,10 @@ CooksBookApp.Models.Recipe = Backbone.Model.extend({
       this.author(response.author);
       delete response.author;
     }
+    if(response.favorites) {
+      this.favorites().set(response.favorites, {parse: true});
+      delete response.favorites;
+    }
 
     return response;
   }

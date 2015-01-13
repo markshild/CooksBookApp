@@ -8,7 +8,7 @@ header {
 }
 
 header h6 {
-  font-family: Futura;
+  font-family: "FuturaExtended";
   font-size: 20px;
   margin: 0;
   margin-top: 5px;
@@ -43,7 +43,7 @@ a:hover {
 }
 
 header a.logo {
-  font-size: 24px;
+  font-size: 30px;
   cursor: pointer;
   color: black;
   float: left;

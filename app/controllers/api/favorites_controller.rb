@@ -4,7 +4,7 @@ class Api::FavoritesController < ApplicationController
     @favorite.user_id = current_user.id
 
     if @favorite.save
-      render json: {}
+      render :show 
     else
       render json: @favorite.errors.full_messages, status: :unprocessable_entity
     end

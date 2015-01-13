@@ -8,8 +8,13 @@ end
 
 if @recipe.favoriters.include?(current_user)
   json.favorited true
+  json.favorite_id @current_favorite.id
 else
   json.favorited false
+end
+
+json.favorites @recipe.favorites do |favorite|
+  json.extract! favorite, :id
 end
 
 

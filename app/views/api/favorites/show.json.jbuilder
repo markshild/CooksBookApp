@@ -1,0 +1,2 @@
+
+json.extract! @favorite, :id

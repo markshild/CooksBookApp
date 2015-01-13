@@ -35,8 +35,8 @@
 
 <h5>Favorited</h5>
 <strong class="count"><%= favoriteCount %></strong>
-<% if (recipe.favorited) { %>
-  <input type="button" class="delete-favorite" data-id="<%= recipe.favorite_id %>" value="Unfavorite">
+<% if (recipe.get('favorited')) { %>
+  <input type="button" class="delete-favorite" data-id="<%= favorite ? favorite : recipe.get('favorite_id') %>" value="Unfavorite">
 <% } else { %>
   <input type="button" class="add-favorite" value="Add to Favorites">
 <% } %>
