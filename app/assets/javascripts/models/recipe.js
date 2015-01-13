@@ -25,6 +25,15 @@ CooksBookApp.Models.Recipe = Backbone.Model.extend({
     return this._comments;
   },
 
+  favorites: function () {
+    if(!this._favorites) {
+      this._favorites = new CooksBookApp.Collections.Favorites([], { recipe: this });
+    }
+
+    return this._favorites;
+  },
+
+
   ingredients: function () {
     if(!this._ingredients) {
       this._ingredients = new CooksBookApp.Collections.Ingredients([], { recipe: this });

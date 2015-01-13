@@ -9,20 +9,22 @@ CooksBookApp.Views.RecipeShow = Backbone.CompositeView.extend({
     this.ingredients = this.model.ingredients();
     this.tags = this.model.tags();
     this.directions = this.model.directions();
+    this.favorites = this.model.favorites();
     this.listenTo(this.model, 'sync change reset', this.render);
   },
 
   events: {
     "click .delete": "deleteRecipe",
     "click .add-favorite": "addFavorite",
-    "click .delete-favorite": "deleteFavorite"
+    "click .delete-favorite": "deleteFavorite",
   },
 
   render: function () {
     var content = this.template({
       recipe: this.model,
       current_id: CooksBookApp.currentUserId,
-      tags: this.tags
+      tags: this.tags,
+      favoriteCount = this.favorites.length
     });
     this.$el.html(content);
     this.addIngredients(this.ingredients);
@@ -38,7 +40,33 @@ CooksBookApp.Views.RecipeShow = Backbone.CompositeView.extend({
     Backbone.history.navigate('', {trigger: true})
   },
 
-  favorite: function () {
+  addFavorite: function (event) {
+    var $target = $(event.target)
+    $target.parent().removeClass('add-favorite')
+    var favorite = new CooksBookApp.Models.Favorite({
+      recipe_id: this.model.id
+    });
+    var that = this;
+    favorite.save({}, {
+      success: function () {
+        that.favorites.add(favorite);
+        that.render();
+      }
+    })
+
+  },
+
+  deleteFavorite: function (event) {
+    var $target = $(event.target)
+    $target.parent().removeClass('delete-favorite')
+    var favorite = this.favorites.getOrFetch($target.data('id'))
+    });
+    var that = this;
+    favorite.destroy({ wait: true,
+      success: function () {
+        that.render();
+      }
+    })
 
   },
 

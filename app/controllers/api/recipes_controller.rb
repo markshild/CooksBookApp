@@ -1,6 +1,5 @@
 class Api::RecipesController < ApplicationController
-  before_action :require_signed_in!, only: [:new, :create]
-  before_action :require_owner!x, only: [:edit, :update, :destroy]
+  before_action :require_signed_in!, only: [:new, :create, :edit, :update, :destroy]
 
   wrap_parameters false
 
@@ -44,12 +43,12 @@ class Api::RecipesController < ApplicationController
   end
 
   def edit
-    @recipe = Recipe.find(params[:id])
+    @recipe = current_user.recipes.find(params[:id])
     @tags = Tag.all
   end
 
   def update
-    @recipe = Recipe.find(params[:id])
+    @recipe = current_user.recipes.find(params[:id])
     Recipe.transaction do
 
       @recipe.ingredients.each do |ingredient|
@@ -79,7 +78,7 @@ class Api::RecipesController < ApplicationController
   end
 
   def destroy
-    recipe = Recipe.find(params[:id])
+    recipe = current_user.recipes.find(params[:id])
     recipe.try(:destroy)
     render json: {}
   end

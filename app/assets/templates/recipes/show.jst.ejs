@@ -33,6 +33,14 @@
     <% });  %>
 </div>
 
+<h5>Favorited</h5>
+<strong class="count"><%= favoriteCount %></strong>
+<% if (recipe.favorited) { %>
+  <input type="button" class="delete-favorite" data-id="<%= recipe.favorite_id %>" value="Unfavorite">
+<% } else { %>
+  <input type="button" class="add-favorite" value="Add to Favorites">
+<% } %>
+
 <h5>Comments</h5>
 <div id="comment">
 

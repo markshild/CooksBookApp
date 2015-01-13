@@ -6,6 +6,13 @@ json.author do
   json.extract! @recipe.user, :id, :name
 end
 
+if @recipe.favoriters.include?(current_user)
+  json.favorited true
+else
+  json.favorited false
+end
+
+
 json.ingredients @recipe.ingredients do |ingredient|
   json.extract! ingredient, :id, :ingredient, :ord
 end
