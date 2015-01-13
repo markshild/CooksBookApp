@@ -1,10 +1,10 @@
 class Api::FavoritesController < ApplicationController
   def create
-    @favorite = Favorites.new(favorite_params)
+    @favorite = Favorite.new(favorite_params)
     @favorite.user_id = current_user.id
 
     if @favorite.save
-      render :show
+      render json: {}
     else
       render json: @favorite.errors.full_messages, status: :unprocessable_entity
     end

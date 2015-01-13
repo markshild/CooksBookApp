@@ -1,6 +1,6 @@
 CooksBookApp.Collections.Favorites = Backbone.Collection.extend({
 
-  model: CooksBookApp.Models.Favorites,
+  model: CooksBookApp.Models.Favorite,
   url: '/api/favorites',
 
   getOrFetch: function (id) {

@@ -1,5 +1,6 @@
 class Api::RecipesController < ApplicationController
-  before_action :require_signed_in!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :require_signed_in!, only: [:new, :create]
+  before_action :require_owner!x, only: [:edit, :update, :destroy]
 
   wrap_parameters false
 

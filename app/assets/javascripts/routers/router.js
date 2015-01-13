@@ -13,6 +13,12 @@ CooksBookApp.Routers.Router = Backbone.Router.extend({
 
   edit: function (id) {
     var recipe = CooksBookApp.recipes.getOrFetch(id);
+
+    if (CooksBookApp.currentUserId !== recipe.author.id) {
+      Backbone.history.navigate("", {trigger: true});
+      return;
+    }
+
     var formView = new CooksBookApp.Views.RecipeForm({
       collection: CooksBookApp.recipes,
       model: recipe,
@@ -33,6 +39,10 @@ CooksBookApp.Routers.Router = Backbone.Router.extend({
   },
 
   new: function () {
+    if (!CooksBookApp.currentUserId) {
+      Backbone.history.navigate("", {trigger: true});
+      return;
+    }
     var newRecipe = new CooksBookApp.Models.Recipe();
     var formView = new CooksBookApp.Views.RecipeForm({
       collection: CooksBookApp.recipes,
