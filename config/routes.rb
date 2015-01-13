@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     resources :recipes
+    resources :users, only: [] do
+      get "current", on: :collection
+    end
     resources :comments, only: [:create, :destroy, :show]
     resources :favorites, only: [:create, :destroy]
     resources :tags, only: [:show, :index] do

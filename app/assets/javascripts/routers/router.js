@@ -8,7 +8,8 @@ CooksBookApp.Routers.Router = Backbone.Router.extend({
     '': 'index',
     'recipes/new': 'new',
     'recipes/:id': 'show',
-    'recipes/:id/edit': 'edit'
+    'recipes/:id/edit': 'edit',
+    'users/current': 'userShow'
   },
 
   edit: function (id) {
@@ -59,6 +60,16 @@ CooksBookApp.Routers.Router = Backbone.Router.extend({
     });
 
     this._swapView(showView);
+  },
+
+  userShow: function () {
+    var user = new CooksBookApp.Models.User();
+    user.fetch();
+    var userView = new CooksBookApp.Views.UserShow({
+      model: user
+    });
+
+    this._swapView(userView);
   },
 
   _swapView: function (view) {

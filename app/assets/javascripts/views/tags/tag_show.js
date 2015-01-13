@@ -10,7 +10,10 @@ CooksBookApp.Views.TagShow = Backbone.View.extend({
   },
 
   render: function () {
-    var content = this.template({ recipes: this.recipes });
+    var content = this.template({
+      recipes: this.recipes,
+      recipePartial: JST['recipes/_box'] 
+      });
     this.$el.html(content);
     return this;
   }
