@@ -16,6 +16,7 @@ class Api::RecipesController < ApplicationController
 
   def search
     @recipes = Recipe.tasty_search(params[:query]).page(params[:page])
+    render :search
   end
 
   def create

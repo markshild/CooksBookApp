@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   resources :comments, only: [:destroy]
 
   namespace :api, defaults: { format: :json } do
-    resources :recipes
+    resources :recipes do
+      get "search", on: :collection
+    end
     resources :users, only: [] do
       get "current", on: :collection
     end

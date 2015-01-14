@@ -1,0 +1,12 @@
+<h5>Search!</h5>
+
+<input type="text" class="query" value="<%= recipes._query %>">
+<input type="submit" class="search">
+
+<% if (recipes._pages && !recipes._pages.first_page) { %>
+  <a class="none prev-page">Previous Page</a>
+<% } %>
+<% if (recipes._pages && !recipes._pages.last_page) { %>
+  <a class="none next-page">Next Page</a>
+<% } %>
+<ul class="search-results"></ul>
