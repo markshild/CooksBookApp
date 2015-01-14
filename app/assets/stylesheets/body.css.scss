@@ -90,3 +90,19 @@ h2.sign {
   width: 140px;
   text-shadow: 0 0 10px white;
 }
+
+li.recipe-box {
+  display: block;
+  border: 1px solid #aaa;
+  height: 400px;
+  width: 300px;
+  background: #ccc;
+  position: relative;
+}
+
+li.recipe-box strong{
+  position: absolute;
+  font-size: 40px;
+  text-shadow: 0 0 20px white;
+  bottom: 0;
+}

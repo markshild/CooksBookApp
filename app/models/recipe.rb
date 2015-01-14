@@ -1,4 +1,6 @@
 class Recipe < ActiveRecord::Base
+  include PgSearch
+  
   validates :title, :cooking_time, :servings, presence: true
   belongs_to :user
   has_many :comments, dependent: :destroy
@@ -11,5 +13,9 @@ class Recipe < ActiveRecord::Base
 
   has_attached_file :picture, default_url: "yum.png"
   validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
+  pg_search_scope :tasty_search, against: [:title, :description], :associated_against => {
+    :ingredients => :ingredient,
+    :tags => :name
+  }
 
 end

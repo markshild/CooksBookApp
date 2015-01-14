@@ -14,12 +14,8 @@ class Api::RecipesController < ApplicationController
     end
   end
 
-  def new
-    @recipe = Recipe.new
-    @recipe.ingredients.new(ord: 0)
-    @recipe.directions.new(ord: 0)
-    @tags = Tag.all
-    render :form
+  def search
+    @recipes = Recipe.tasty_search(params[:query]).page(params[:page])
   end
 
   def create
