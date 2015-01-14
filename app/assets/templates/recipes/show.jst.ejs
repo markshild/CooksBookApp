@@ -33,12 +33,14 @@
     <% });  %>
 </div>
 
-<h5>Favorited</h5>
+<h5>Favorites</h5>
 <strong class="count"><%= favoriteCount %></strong>
-<% if (recipe.get('favorited')) { %>
-  <input type="button" class="delete-favorite" data-id="<%= favorite ? favorite : recipe.get('favorite_id') %>" value="Unfavorite">
-<% } else { %>
-  <input type="button" class="add-favorite" value="Add to Favorites">
+<% if (current_id) { %>
+  <% if (recipe.get('favorited')) { %>
+    <input type="button" class="delete-favorite" data-id="<%= favorite ? favorite : recipe.get('favorite_id') %>" value="Unfavorite">
+  <% } else { %>
+    <input type="button" class="add-favorite" value="Add to Favorites">
+  <% } %>
 <% } %>
 
 <h5>Comments</h5>
@@ -46,9 +48,11 @@
 
 </div>
 
-<div id="comment-form">
+<% if (current_id) { %>
+  <div id="comment-form">
+  </div>
+<% } %>
 
-</div>
 <% if (recipe._author) { %>
   <% if (recipe._author.id === current_id) { %>
     <a href="#/recipes/<%= recipe.id %>/edit">Edit Recipe</a>
