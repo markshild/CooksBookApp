@@ -1,5 +1,6 @@
 json.extract! @recipe, :id, :title, :description, :servings, :cooking_time, :img_url, :created_at, :updated_at
 json.picture_url asset_path(@recipe.picture.url)
+json.nutrition_url asset_path(@recipe.nutrition.url)
 json.tag_ids @recipe.tag_ids
 
 json.author do

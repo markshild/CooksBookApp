@@ -32,6 +32,11 @@
     <% });  %>
 </div>
 
+<h5>Nutrition Information</h5>
+<div class="nutrition">
+  <img src="<%= recipe.get('nutrition_url') %>"/>
+</div>
+
 <h5>Favorites</h5>
 <strong class="count"><%= favoriteCount %></strong>
 <% if (current_id) { %>

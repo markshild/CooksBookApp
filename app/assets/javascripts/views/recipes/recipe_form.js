@@ -52,18 +52,24 @@ CooksBookApp.Views.RecipeForm = Backbone.CompositeView.extend({
 
   submit: function (event) {
     event.preventDefault();
+    var waiting = $('<div/>')
+      .addClass("waiting")
+      .append("<p/>")
+      .text("Our scientists are attempting to calculate nutrition information. Please be patient.");
+    this.$el.append(waiting);
     var params = this.$('form').serializeJSON().recipe;
     this.model._ingredient = this.$('form').serializeJSON().ingredient
     this.model._direction = this.$('form').serializeJSON().direction
     var that = this;
-    debugger
     this.model.save(params, {
       success: function () {
-        that.collection.add(this.model, {merge: true});
+        that.collection.add(that.model, {merge: true});
 
         delete that.model._picture;
-
         Backbone.history.navigate('recipes/' + that.model.id, {trigger: true});
+      },
+      error: function () {
+        this.$('.waiting').remove();
       }
     })
   },

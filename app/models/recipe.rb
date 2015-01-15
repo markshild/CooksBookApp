@@ -15,6 +15,11 @@ class Recipe < ActiveRecord::Base
   has_attached_file :picture, default_url: "yum.png"
   validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
 
+  has_attached_file :nutrition, default_url: "nonutrition.jpg"
+  validates_attachment_content_type :nutrition, :content_type => /\Aimage\/.*\Z/
+
+  after_validation :get_nutrition
+
   pg_search_scope :tasty_search, against: [:title, :description], :associated_against => {
     :ingredients => :ingredient,
     :tags => :name
@@ -22,4 +27,36 @@ class Recipe < ActiveRecord::Base
 
   paginates_per 4
 
+  require 'addressable/uri'
+
+  def get_nutrition
+
+    begin
+      ingredients = self.ingredients.map{|ing| ing.ingredient}.join(" + ")
+
+      wolfram_url = Addressable::URI.new(
+      scheme: 'http',
+      host: 'api.wolframalpha.com',
+      path: 'v2/query',
+      query_values: {
+        appid: 'PJ8EYG-Q8EEU3PP65',
+        input: ingredients,
+        podtitle: "Total nutrition facts"
+      }
+      ).to_s # needs to_s because RestClient only takes strings
+      puts wolfram_url
+      wolfram_response = RestClient.get(wolfram_url)
+      doc = Nokogiri::Slop(wolfram_response)
+      # img_url = /<img src="([^"]*)/.match(parsed_wolf).captures.first
+      # <img src="([^"]*)" $1 for capture
+      puts doc
+      debugger
+      img_url = doc.queryresult.pod.subpod.img["src"]
+
+      nutrition = open(img_url)
+
+      self.nutrition = nutrition
+    end
+    nil
+  end
 end

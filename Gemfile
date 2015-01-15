@@ -17,6 +17,11 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'pg_search'
 gem 'kaminari'
 
+# For interacting with Wolfram ALpha Api
+gem 'addressable'
+gem 'rest-client'
+gem 'nokogiri'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

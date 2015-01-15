@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150114142935) do
+ActiveRecord::Schema.define(version: 20150115183955) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,6 +80,10 @@ ActiveRecord::Schema.define(version: 20150114142935) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
+    t.string   "nutrition_file_name"
+    t.string   "nutrition_content_type"
+    t.integer  "nutrition_file_size"
+    t.datetime "nutrition_updated_at"
   end
 
   add_index "recipes", ["user_id"], name: "index_recipes_on_user_id", using: :btree
