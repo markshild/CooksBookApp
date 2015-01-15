@@ -1,13 +1,19 @@
 <h2Top Tags</h2>
 
-<ul class='tags'>
-  <% tags.each(function (tag) { %>
-    <li class="tag" data-id="<%= tag.id %>">
-          <%= tag.escape('name') %>
-      </a>
-    </li>
-  <% }); %>
-</ul>
+<div id="search-background">
+  <img src="http://bramblescatering.ie/wp-content/uploads/2013/09/health-food-hires-1024x768-800x400.jpg" alt="" />
+</div>
+<section class="tags">
+
+  <ul class='group tags'>
+    <% tags.each(function (tag) { %>
+      <li class="tag" data-id="<%= tag.id %>">
+            <%= tag.escape('name') %>
+        </a>
+      </li>
+    <% }); %>
+  </ul>
+</section>
 
 <div id="tag-show">
 

@@ -5,35 +5,67 @@ header {
   width: 100%;
 }
 
-header h6 {
+header nav h6 {
   font-family: "FuturaExtended";
   font-size: 20px;
   padding-top: 5px;
   float: right;
-  position: relative
+  position: relative;
+  text-shadow: 0 0 0;
+  cursor: pointer;
+}
+
+header nav h6:hover .dropdown{
+  display: block;
 }
 
 header nav {
   float: right;
 }
 
-header > form {
-  float: right;
-  margin-top: 5px;
+header nav input {
+  display: block;
+  background: transparent;
+  font-size: 20px;
+  padding: 5px 10px;
 }
 
 header nav .dropdown {
   float: left;
-  position: relative;
+  position: absolute;
+  display: none;
+  bottom: -73px;
+  right: 0;
+  cursor: pointer;
+  background: red;
+  cursor: pointer;
+  white-space: nowrap;
+  border-top: 1px solid white;
 }
 
-div.dropdown a, form {
-  float: left;
+div.dropdown a, input {
+  float: right;
 }
 
 div.dropdown a {
   font-size: 20px;
-  padding-top: 5px;
+  padding: 5px 10px;
+  border-bottom: 1px solid white;
+}
+
+header ul {
+  float: right;
+  display: block;
+  font-size: 20px;
+  vertical-align: center;
+
+}
+
+header ul li {
+  display: block;
+  float: left;
+  border-left: 1px solid white;
+  padding: 5px 10px;
 }
 
 header a.add {
@@ -62,6 +94,7 @@ header a.logo {
   color: white;
   border-right: 1px solid white;
   padding-right: 5px;
+  padding-left: 0;
 }
 .group:after {
   content: "";

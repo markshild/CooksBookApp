@@ -23,7 +23,6 @@ CooksBookApp.Views.RecipeShow = Backbone.CompositeView.extend({
   },
 
   render: function () {
-
     var content = this.template({
       recipe: this.model,
       current_id: CooksBookApp.currentUserId,

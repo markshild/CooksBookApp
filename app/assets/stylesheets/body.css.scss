@@ -26,6 +26,7 @@ section.sign {
   border-radius: 8px;
   border: 2px solid grey;
   margin-top: 100px;
+  background: rgba(160, 160, 160, .5);
 }
 
 form.sign {
@@ -34,13 +35,12 @@ form.sign {
 
 form.sign * {
   display: block;
-  background: transparent;
 }
 
 section.background-pic {
   position: relative;
   display: block;
-  margin-top: 30px;
+  height: 900px;
   border: 1px solid transparent;
   max-height: 1200px;
 
@@ -93,16 +93,95 @@ h2.sign {
 
 li.recipe-box {
   display: block;
-  border: 1px solid #aaa;
-  height: 400px;
+  border: 1px solid #7f8c8d;
+  height: 250px;
   width: 300px;
-  background: #ccc;
+  background: #ecf0f1;
   position: relative;
+  float: left;
+  margin: 20px 20px;
+}
+
+li.recipe-box a:hover {
+  color: black;
 }
 
 li.recipe-box strong{
   position: absolute;
-  font-size: 40px;
+  font-size: 26px;
   text-shadow: 0 0 20px #fff;
   bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  text-shadow:
+  -1px -1px 0 white,
+  1px -1px 0 white,
+  -1px 1px 0 white,
+  1px 1px 0 white;
+}
+
+section.tags {
+  display: block;
+  background: black;
+}
+
+ul.tags {
+  width: 50%;
+  margin: auto;
+}
+
+ul.tags li {
+  float: left;
+  color: white;
+  border-left: 1px solid white;
+  padding: 10px 0;
+  width: 33%;
+  text-align: center;
+  position: relative;
+}
+
+ul.tags li.selected:after {
+  background: #95a5a6;
+}
+
+ul.tags li:last-child {
+  border-right: 1px solid white;
+}
+
+ul.tags li:hover {
+  cursor: pointer;
+}
+
+div#search-background {
+  display: block;
+  height: 400px;
+}
+
+body {
+  background: #95a5a6;
+}
+
+div.recipe-pic {
+  position: relative;
+}
+
+div.recipe-pic h2,h6 {
+  position: absolute;
+  float: left;
+  text-shadow:
+  -1px -1px 0 white,
+  1px -1px 0 white,
+  -1px 1px 0 white,
+  1px 1px 0 white;
+}
+
+div.recipe-pic h2 {
+  font-size: 36px;
+  top: 0px;
+}
+
+div.recipe-pic h6 {
+  font-size: 36px;
+  bottom: -30px;
 }

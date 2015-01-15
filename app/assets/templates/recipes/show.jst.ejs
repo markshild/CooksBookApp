@@ -1,10 +1,9 @@
-<h2><%= recipe.escape('title') %> </h2>
-<% if (recipe._author) { %>
-<h6>by <%= recipe._author.name %> </h6>
-<% } %>
-
 <div class="recipe-pic">
-<img src="<%= recipe.get('picture_url') %>" width="100" alt="" />
+  <img src="<%= recipe.get('picture_url') %>"alt="" />
+  <h2><%= recipe.escape('title') %> </h2>
+  <% if (recipe._author) { %>
+    <h6>by <%= recipe._author.name %> </h6>
+  <% } %>
 </div>
 
 <h5>Description</h4>
