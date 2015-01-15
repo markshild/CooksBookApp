@@ -1,9 +1,15 @@
 CooksBookApp.Views.RecipeSearch = Backbone.View.extend({
 
 
-  initialize: function () {
+  initialize: function (options) {
     this.collection = new CooksBookApp.Collections.SearchResults();
     this.listenTo(this.collection, "sync", this.render);
+    this.collection._query = options.query;
+    if (options.query) {
+      this.collection.fetch({
+        data: {query: this.collection._query}
+      });
+    }
   },
 
   events: {

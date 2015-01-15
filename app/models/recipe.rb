@@ -18,8 +18,6 @@ class Recipe < ActiveRecord::Base
   has_attached_file :nutrition, default_url: "nonutrition.jpg"
   validates_attachment_content_type :nutrition, :content_type => /\Aimage\/.*\Z/
 
-  after_validation :get_nutrition
-
   pg_search_scope :tasty_search, against: [:title, :description], :associated_against => {
     :ingredients => :ingredient,
     :tags => :name
@@ -56,6 +54,7 @@ class Recipe < ActiveRecord::Base
       nutrition = open(img_url)
 
       self.nutrition = nutrition
+      self.save if self.valid?
     end
     nil
   end

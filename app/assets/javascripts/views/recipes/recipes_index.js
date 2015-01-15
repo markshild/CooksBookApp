@@ -9,7 +9,8 @@ CooksBookApp.Views.RecipesIndex = Backbone.View.extend({
   },
 
   events: {
-    "click .tag": "renderTag"
+    "click .tag": "renderTag",
+    "click .search": "search"
   },
 
   render: function () {
@@ -31,6 +32,12 @@ CooksBookApp.Views.RecipesIndex = Backbone.View.extend({
     }
 
     return this;
+  },
+
+  search: function (event) {
+    event.preventDefault();
+    var query = encodeURI(this.$('form').serializeJSON().query);
+    Backbone.history.navigate('recipes/search?query=' + query, {trigger: true})
   },
 
   renderTag: function (event) {
