@@ -1,5 +1,6 @@
 body h2 {
   font-size: 36px;
+
 }
 
 body h5 {
@@ -156,19 +157,32 @@ ul.tags li:hover {
 div#search-background {
   display: block;
   height: 400px;
+  position: relative;
+}
+
+div#search-background form {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-200%);
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 body {
   background: #95a5a6;
+  min-width: 750px;
 }
 
 div.recipe-pic {
   position: relative;
+  width: 80%;
+  margin: auto;
 }
 
 div.recipe-pic h2,h6 {
   position: absolute;
-  float: left;
+  left: 50%;
+  transform: translateX(-50%);
   text-shadow:
   -1px -1px 0 white,
   1px -1px 0 white,
@@ -177,13 +191,13 @@ div.recipe-pic h2,h6 {
 }
 
 div.recipe-pic h2 {
-  font-size: 36px;
-  top: 0px;
+  font-size: 42px;
+  top: 12px;
 }
 
 div.recipe-pic h6 {
   font-size: 36px;
-  bottom: -30px;
+  bottom: 5px;
 }
 
 div.nutrition {
@@ -202,4 +216,53 @@ div.waiting {
   font-size: 24px;
   padding: 10px 20px;
   display: block;
+}
+
+div.recipes-form form {
+  display: block;
+  margin: auto;
+  width: 700px;
+}
+
+div.recipes-form form label {
+  display: block;
+}
+
+div.recipes-form form * {
+  display: block;
+  float: none;
+}
+
+div.recipes-show {
+  background: #bdc3c7;
+  width: 80%;
+  margin: auto;
+}
+
+div.recipes-show h5 {
+  text-align: center;
+  text-decoration: underline;
+}
+
+div.recipes-show .info{
+  padding: 10px;
+  margin: auto;
+}
+
+div.recipes-show .info .time{
+  padding: 10px;
+  margin: auto;
+  display: block;
+  border: 1px solid #95a5a6;
+}
+
+div.recipes-show .info p {
+  display: block;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+div.recipes-show .info .time h4 {
+  display: block;
+  text-align: center;
 }

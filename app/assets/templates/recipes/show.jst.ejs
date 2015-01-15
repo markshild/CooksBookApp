@@ -6,19 +6,22 @@
   <% } %>
 </div>
 
+<div class="info">
+
 <h5>Description</h4>
 <p>
   <%= recipe.escape('description') %>
 </p>
-
-<h5>Servings: <%= recipe.get('servings') %> </h5>
+<div class="group time">
+  <h4>Servings  |  Cooking Time</h4>
+  <h4><%= recipe.get('servings') %>  |  <%= recipe.get('cooking_time') %> minutes</h4>
+</div>
 
 <h5>Ingredients</h5>
 <div id="ingredient">
 
 </div>
 
-<h5>Cooking Time: <%= recipe.get('cooking_time') %> minutes</h5>
 
 <h5>Directions</h5>
 <div id="direction">
@@ -63,3 +66,4 @@
     <input type="button" class="delete" value="Delete Recipe">
   <% }; %>
 <% }; %>
+</div>

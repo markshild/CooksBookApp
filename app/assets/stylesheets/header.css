@@ -3,12 +3,14 @@ header {
   background: red;
   top: 0;
   width: 100%;
+  position: relative;
+  z-index: 2;
 }
 
 header nav h6 {
   font-family: "FuturaExtended";
   font-size: 20px;
-  padding-top: 5px;
+  padding: 8px 10px 5px 10px;
   float: right;
   position: relative;
   text-shadow: 0 0 0;
@@ -21,6 +23,7 @@ header nav h6:hover .dropdown{
 
 header nav {
   float: right;
+  margin-right: 20px;
 }
 
 header nav input {
@@ -34,17 +37,23 @@ header nav .dropdown {
   float: left;
   position: absolute;
   display: none;
-  bottom: -73px;
+  bottom: -67px;
   right: 0;
   cursor: pointer;
   background: red;
   cursor: pointer;
   white-space: nowrap;
   border-top: 1px solid white;
+  z-index: 10;
 }
 
 div.dropdown a, input {
   float: right;
+  cursor: pointer;
+}
+
+div.dropdown input:hover {
+  color: white;
 }
 
 div.dropdown a {
@@ -65,16 +74,14 @@ header ul li {
   display: block;
   float: left;
   border-left: 1px solid white;
-  padding: 5px 10px;
+  padding: 2px 10px 5px 10px;
 }
 
 header a.add {
   float: left;
-  font-size: 36px;
+  font-size: 30px;
   text-decoration: none;
-  margin-bottom: -7px;
-  margin-top: -6px;
-  margin-right: 8px;
+  padding: 5px 5px;
   border: 1px solid white;
   padding: 0 10px;
 }
