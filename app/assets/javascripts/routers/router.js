@@ -16,7 +16,7 @@ CooksBookApp.Routers.Router = Backbone.Router.extend({
   edit: function (id) {
     var recipe = CooksBookApp.recipes.getOrFetch(id);
 
-    if (CooksBookApp.currentUserId !== recipe.author.id) {
+    if (CooksBookApp.currentUserId !== recipe._author.id) {
       Backbone.history.navigate("", {trigger: true});
       return;
     }
