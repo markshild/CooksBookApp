@@ -7,7 +7,6 @@ body h5 {
   font-size: 24px;
   margin-bottom: 10px;
   margin-top: 10px;
-  min-width: 700px;
 }
 
 input {
@@ -81,12 +80,14 @@ form.sign input.button {
   cursor: pointer;
   border-radius: 5px;
   padding: 6px 5px;
-  box-sahdow: 3px 0 darkgray;
+  box-shadow: 3px 0 darkgray;
   box-shadow: 0 0 5px white;
+  position: relative;
 }
 
 form.sign input.button:active {
-
+  box-shadow: none;
+  top: 3px;
 }
 
 h2.sign {
@@ -162,6 +163,8 @@ div#search-background {
   display: block;
   height: 400px;
   position: relative;
+  background: image-url('ramen.jpg');
+  background-size: cover;
 }
 
 div#search-background form {
@@ -174,20 +177,61 @@ div#search-background form {
   background: black;
   border: 2px solid black;
 }
+div.center {
+  display: block;
+  margin: auto;
+  border: 1px solid black;
+  border-top: none;
+  padding-bottom: 10px;
+  width: 400px;
+}
+div.center h5 {
+  text-align: center;
+  display: block;
+  margin-top: 0;
+}
+div.center form {
+  display: block;
+  margin-left: 90px;;
+}
 
-div#search-background form .t{
+div.center form .t {
+  margin-top: 2px;
+}
+
+div.rec-search {
+  display: block;
+  margin: auto;
+  width: 80%;
+  background: #bdc3c7;
+  min-height: 600px;
+  border-bottom: 40px;
+}
+
+div.rec-search .t, .s{
+  float: left;
+}
+
+.search {
+  display: block;
+  background: black;
+  border: 2px solid black;
+  float: left;
+}
+
+.t {
   cursor: text;
   float: none;
 }
 
-div#search-background form .s{
+.s {
   float: none;
   background: url("search.png");
 }
 
 body {
   background: #95a5a6;
-  min-width: 750px;
+  min-width: 800px;
 }
 
 div.recipe-pic {
@@ -240,7 +284,27 @@ div.waiting {
 div.recipes-form form {
   display: block;
   margin: auto;
-  width: 700px;
+  width: 80%;
+  background: #bdc3c7;
+}
+
+.sub {
+  background: green;
+  cursor: pointer;
+}
+div.recipes-form form.form .check {
+  float: left;
+  cursor: default;
+}
+
+div.recipes-form form.form .ch {
+  float: left;
+  margin-right: 5px;
+}
+
+div.recipes-form form.form textarea {
+  height: 80px;
+  width: 320px;
 }
 
 div.recipes-form form label {
@@ -254,6 +318,7 @@ div.recipes-form form * {
 
 div.recipes-form form input {
   cursor: text;
+  border: 1px solid #95a5a6;
 }
 
 div.recipes-show {

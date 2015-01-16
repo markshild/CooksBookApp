@@ -1,5 +1,6 @@
 CooksBookApp.Views.RecipeSearch = Backbone.View.extend({
 
+  className: 'rec-search group',
 
   initialize: function (options) {
     this.collection = new CooksBookApp.Collections.SearchResults();
@@ -13,7 +14,7 @@ CooksBookApp.Views.RecipeSearch = Backbone.View.extend({
   },
 
   events: {
-    "click .search": "search",
+    "submit form": "search",
     "click .next-page": "nextPage",
     "click .prev-page": "prevPage"
   },

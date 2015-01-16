@@ -1,4 +1,4 @@
-<form class="group">
+<form class="form group">
   <label>Title</label>
   <input type="text" name="recipe[title]" value="<%= recipe.escape('title') %>">
 
@@ -43,8 +43,8 @@
   <label>Tags</label>
   <input type="hidden" name="recipe[tag_ids][]" value="">
   <% tags.each( function(tag) {%>
-  <label><input type="checkbox" name="recipe[tag_ids][]" value="<%= tag.id %>" <% if (recipe.get('tag_ids') && recipe.get('tag_ids').indexOf(tag.id) !== -1) { %>checked<% } %>>
+  <label class="ch"><input class="check" type="checkbox" name="recipe[tag_ids][]" value="<%= tag.id %>" <% if (recipe.get('tag_ids') && recipe.get('tag_ids').indexOf(tag.id) !== -1) { %>checked<% } %>>
     <%= tag.escape('name') %></label>
     <% }) %>
-  <input type="submit" value="Submit">
+  <input class="sub" type="submit" value="Submit">
 </form>

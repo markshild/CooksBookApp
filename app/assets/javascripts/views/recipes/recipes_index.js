@@ -37,10 +37,13 @@ CooksBookApp.Views.RecipesIndex = Backbone.View.extend({
   search: function (event) {
     event.preventDefault();
     var query = encodeURI(this.$('form').serializeJSON().query);
+    // if (query.blank?)
     Backbone.history.navigate('recipes/search/' + query, {trigger: true})
   },
 
   renderTag: function (event) {
+    this.$('.tags').
+    this.$("ul.tags>li.active").removeClass("active");
     var id = $(event.target).data('id')
     var tag = this.collection.get(id);
     var view = new CooksBookApp.Views.TagShow({

@@ -1,8 +1,14 @@
-<h5>Recipe Search</h5>
+<div class="center group">
+
+<h5 class="fix">Recipe Search</h5>
+
+<form class="group search">
 
 <input type="text" class="query t" placeholder="Search" value="<%= recipes._query %>">
-<input type="submit" class="search s">
-
+<input type="submit" class="search s" value="    ">
+</form>
+</div>
+<br>
 <% if (recipes._pages && !recipes._pages.first_page) { %>
   <a class="none prev-page">Previous Page</a>
 <% } %>
