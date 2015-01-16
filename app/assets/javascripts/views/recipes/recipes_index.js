@@ -27,7 +27,7 @@ CooksBookApp.Views.RecipesIndex = Backbone.View.extend({
         model: tag
       });
       that.swapView(view);
-
+      that.$('li.tag:first-child').addClass("selected");
 
     }
 
@@ -42,8 +42,8 @@ CooksBookApp.Views.RecipesIndex = Backbone.View.extend({
   },
 
   renderTag: function (event) {
-    this.$('.tags').
-    this.$("ul.tags>li.active").removeClass("active");
+    this.$("ul.tags").children().removeClass("selected");
+    $(event.target).addClass("selected");
     var id = $(event.target).data('id')
     var tag = this.collection.get(id);
     var view = new CooksBookApp.Views.TagShow({

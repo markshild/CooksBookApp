@@ -148,7 +148,13 @@ ul.tags li {
 }
 
 ul.tags li.selected:after {
-  background: #95a5a6;
+  background: black;
+  content: "";
+  position: absolute;
+  border: 10px solid black;
+  bottom: -15px;
+  transform: rotate(45deg) translateX(-50%);
+  left: 50%;
 }
 
 ul.tags li:last-child {
@@ -232,6 +238,11 @@ div.rec-search .t, .s{
 body {
   background: #95a5a6;
   min-width: 800px;
+}
+
+.selected:after {
+  content: "";
+  z-index: -5;
 }
 
 div.recipe-pic {
