@@ -37,6 +37,10 @@ form.sign {
 form.sign * {
   display: block;
 }
+form.sign input {
+  float: none;
+  cursor: text;
+}
 
 section.background-pic {
   position: relative;
@@ -162,10 +166,23 @@ div#search-background {
 
 div#search-background form {
   position: absolute;
-  left: 50%;
+  left: 40%;
   transform: translateX(-200%);
   top: 50%;
   transform: translateY(-50%);
+  display: block;
+  background: black;
+  border: 2px solid black;
+}
+
+div#search-background form .t{
+  cursor: text;
+  float: none;
+}
+
+div#search-background form .s{
+  float: none;
+  background: url("search.png");
 }
 
 body {
@@ -210,9 +227,11 @@ div.waiting {
   border: 2px solid #bdc3c7;
   background: #3498db;
   color: #2c3e50;
-  position: absolute;
+  position: fixed;
   left: 50%;
+  transform: translateX(-50%);
   top: 50%;
+  transform: translateY(-50%);
   font-size: 24px;
   padding: 10px 20px;
   display: block;
@@ -231,6 +250,10 @@ div.recipes-form form label {
 div.recipes-form form * {
   display: block;
   float: none;
+}
+
+div.recipes-form form input {
+  cursor: text;
 }
 
 div.recipes-show {
@@ -264,5 +287,27 @@ div.recipes-show .info p {
 
 div.recipes-show .info .time h4 {
   display: block;
+  text-align: center;
+}
+
+div.recipes-show input.comment-submit, input.add-favorite, input.delete, input.delete-favorite {
+  float: none;
+}
+
+div.recipes-show input.delete, input.delete-favorite {
+  background: red;
+}
+
+div.recipes-show input.add-favorite, input.comment-submit {
+  background: #2ecc71;
+}
+
+div.recipes-show div#fav, div#comm {
+  float: left;
+  display: block;
+  width: 50%;
+}
+
+div.recipes-show div#fav, div#comm h5{
   text-align: center;
 }

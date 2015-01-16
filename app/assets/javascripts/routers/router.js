@@ -7,7 +7,7 @@ CooksBookApp.Routers.Router = Backbone.Router.extend({
   routes: {
     '': 'index',
     'recipes/new': 'new',
-    'recipes/search': 'search',
+    'recipes/search/:data': 'search',
     'recipes/:id': 'show',
     'recipes/:id/edit': 'edit',
     'users/current': 'userShow'
@@ -74,9 +74,7 @@ CooksBookApp.Routers.Router = Backbone.Router.extend({
   },
 
   search: function (data) {
-    var decoded = decodeURI(data);
-    var query = /query=(.*)/.exec(decoded)[1];
-    console.log(query);
+    var query = decodeURI(data);
     var searchView = new CooksBookApp.Views.RecipeSearch({query: query});
     this._swapView(searchView);
   },

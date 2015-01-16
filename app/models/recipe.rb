@@ -18,6 +18,8 @@ class Recipe < ActiveRecord::Base
   has_attached_file :nutrition, default_url: "nonutrition.jpg"
   validates_attachment_content_type :nutrition, :content_type => /\Aimage\/.*\Z/
 
+  after_validation :get_nutrition
+
   pg_search_scope :tasty_search, against: [:title, :description], :associated_against => {
     :ingredients => :ingredient,
     :tags => :name
@@ -42,19 +44,15 @@ class Recipe < ActiveRecord::Base
         podtitle: "Total nutrition facts"
       }
       ).to_s # needs to_s because RestClient only takes strings
-      puts wolfram_url
       wolfram_response = RestClient.get(wolfram_url)
       doc = Nokogiri::Slop(wolfram_response)
-      # img_url = /<img src="([^"]*)/.match(parsed_wolf).captures.first
-      # <img src="([^"]*)" $1 for capture
-      puts doc
-      debugger
       img_url = doc.queryresult.pod.subpod.img["src"]
 
       nutrition = open(img_url)
 
       self.nutrition = nutrition
-      self.save if self.valid?
+      # self.save if self.valid?
+    rescue NoMethodError
     end
     nil
   end

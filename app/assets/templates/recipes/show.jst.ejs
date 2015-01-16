@@ -13,8 +13,24 @@
   <%= recipe.escape('description') %>
 </p>
 <div class="group time">
-  <h4>Servings  |  Cooking Time</h4>
-  <h4><%= recipe.get('servings') %>  |  <%= recipe.get('cooking_time') %> minutes</h4>
+  <table cellpadding="5px" cellspacing="5px">
+    <tr>
+      <td>
+        <h4>Servings</h4>
+      </td>
+      <td>
+        <h4>Cooking Time</h4>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h4><%= recipe.get('servings') %></h4>
+      </td>
+      <td>
+        <h4><%= recipe.get('cooking_time') %> minutes</h4>
+      </td>
+    </tr>
+  </table>
 </div>
 
 <h5>Ingredients</h5>
@@ -40,6 +56,8 @@
   <img src="<%= recipe.get('nutrition_url') %>"/>
 </div>
 
+<div id="fav">
+
 <h5>Favorites</h5>
 <strong class="count"><%= favoriteCount %></strong>
 <% if (current_id) { %>
@@ -49,6 +67,9 @@
     <input type="button" class="add-favorite" value="Add to Favorites">
   <% } %>
 <% } %>
+</div>
+
+<div id="comm">
 
 <h5>Comments</h5>
 <div id="comment">
@@ -59,6 +80,7 @@
   <div id="comment-form">
   </div>
 <% } %>
+</div>
 
 <% if (recipe._author) { %>
   <% if (recipe._author.id === current_id) { %>

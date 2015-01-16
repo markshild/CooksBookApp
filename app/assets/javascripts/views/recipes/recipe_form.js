@@ -52,11 +52,12 @@ CooksBookApp.Views.RecipeForm = Backbone.CompositeView.extend({
 
   submit: function (event) {
     event.preventDefault();
-    var waiting = $('<div/>')
+    var $waiting = $('<div/>')
       .addClass("waiting")
       .append("<p/>")
       .text("Our scientists are attempting to calculate nutrition information. Please be patient.");
-    this.$el.append(waiting);
+    $waiting.append('<img src="http://aforgrave.ca/detritus/wp-content/uploads/2012/12/Beaker3_280.gif" height="150px">')
+    this.$el.append($waiting);
     var params = this.$('form').serializeJSON().recipe;
     this.model._ingredient = this.$('form').serializeJSON().ingredient
     this.model._direction = this.$('form').serializeJSON().direction

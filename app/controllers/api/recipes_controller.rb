@@ -35,7 +35,6 @@ class Api::RecipesController < ApplicationController
 
     if @recipe.save
       render :show
-      @recipe.get_nutrition
     else
       flash.now[:errors] = @recipe.errors.full_messages
       @tags = Tag.all
@@ -72,7 +71,6 @@ class Api::RecipesController < ApplicationController
 
     if @recipe.update(recipe_params)
       render :show
-      @recipe.get_nutrition
     else
       @tags = Tag.all
       render json: @recipe.errors.full_messages, status: 422
