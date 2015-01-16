@@ -70,6 +70,7 @@ class Api::RecipesController < ApplicationController
     end
 
     if @recipe.update(recipe_params)
+      @current_favorite = current_user.favorites.where(recipe_id: params[:id]).first
       render :show
     else
       @tags = Tag.all

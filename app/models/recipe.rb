@@ -44,10 +44,11 @@ class Recipe < ActiveRecord::Base
         podtitle: "Total nutrition facts"
       }
       ).to_s # needs to_s because RestClient only takes strings
+      puts wolfram_url
       wolfram_response = RestClient.get(wolfram_url)
       doc = Nokogiri::Slop(wolfram_response)
       img_url = doc.queryresult.pod.subpod.img["src"]
-
+      puts img_url
       nutrition = open(img_url)
 
       self.nutrition = nutrition
