@@ -21,6 +21,7 @@ module CooksBookApp
     # config.i18n.default_locale = :de
     config.assets.paths << "app/assets/templates"
     config.assets.paths << "app/assets/fonts"
+    config.assets.paths << "app/assets/images"
 
     config.paperclip_defaults = {
       :storage => :s3,

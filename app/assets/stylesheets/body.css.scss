@@ -147,6 +147,18 @@ ul.tags li {
   position: relative;
 }
 
+ul.tags li:after {
+  background: black;
+  content: "";
+  position: absolute;
+  border: 10px solid black;
+  bottom: -15px;
+  transform: rotate(45deg) translateX(-50%);
+  left: 50%;
+  opacity: 0;
+  transition: opacity .7s ease-in-out;
+}
+
 ul.tags li.selected:after {
   background: black;
   content: "";
@@ -155,6 +167,8 @@ ul.tags li.selected:after {
   bottom: -15px;
   transform: rotate(45deg) translateX(-50%);
   left: 50%;
+  opacity: 1;
+  transition: opacity .7s ease-in-out;
 }
 
 ul.tags li:last-child {
@@ -237,7 +251,7 @@ div.rec-search .t, .s{
 
 body {
   background: #95a5a6;
-  min-width: 800px;
+  min-width: 850px;
 }
 
 .selected:after {
@@ -352,6 +366,10 @@ div.recipes-show .info .time{
   padding: 10px;
   margin: auto;
   display: block;
+}
+
+.time table {
+  margin: auto;
   border: 1px solid #95a5a6;
 }
 
@@ -359,6 +377,10 @@ div.recipes-show .info p {
   display: block;
   margin-bottom: 15px;
   text-align: center;
+}
+
+div.recipes-show {
+  margin-bottom: 50px;
 }
 
 div.recipes-show .info .time h4 {
@@ -374,6 +396,24 @@ div.recipes-show input.delete, input.delete-favorite {
   background: red;
 }
 
+div.recipes-show input.delete {
+  margin-top: 8px;
+  width: 100%;
+}
+
+div.recipes-show .edit-rec {
+  background: #f1c40f;
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  vertical-align: center;
+  padding: 5px 0 5px 0;
+}
+
+div.recipes-show .edit-rec:hover {
+  color: black;
+}
+
 div.recipes-show input.add-favorite, input.comment-submit {
   background: #2ecc71;
 }
@@ -384,6 +424,40 @@ div.recipes-show div#fav, div#comm {
   width: 50%;
 }
 
+div.recipes-show div#comm textarea{
+  width: 60%;
+  float: left;
+}
+
+button.comment-delete{
+  background: red;
+  padding: 2px 7px 0 7px;
+  border-radius: 50%;
+}
+
+button.comment-delete:hover {
+  color: white;
+  cursor: pointer;
+}
+
 div.recipes-show div#fav, div#comm h5{
   text-align: center;
+}
+
+div#tag {
+  float: left;
+  margin-left: 50%;
+}
+
+div#tag li {
+  border: 1px solid #2c3e50;
+  margin: 10px 0 10px 0;
+  text-align: center;
+  padding: 5px 5px;
+  color: #ecf0f1;
+  background: #2c3e50;
+}
+
+div.nutrition {
+  float: left;
 }

@@ -17,10 +17,6 @@ header nav h6 {
   cursor: pointer;
 }
 
-header nav h6:hover .dropdown{
-  display: block;
-}
-
 header nav {
   float: right;
   margin-right: 20px;
@@ -36,20 +32,38 @@ header nav input {
 header nav .dropdown {
   float: left;
   position: absolute;
-  display: none;
-  bottom: -67px;
+  top: 100%;
+  left: 100;
   right: 0;
   cursor: pointer;
   background: red;
   cursor: pointer;
   white-space: nowrap;
-  border-top: 1px solid white;
   z-index: 10;
+  transition: all 0.5s ease-out;
+  max-height: 0;
+  overflow: hidden;
+}
+
+header nav .dropdown:hover {
+  display: block;
+  max-height: 400px;
+}
+
+header nav h6:hover + .dropdown{
+  display: block;
+  max-height: 400px;
+}
+
+header nav h6:hover {
+  background: white;
+  color: red;
 }
 
 div.dropdown a, input {
   float: right;
   cursor: pointer;
+  transition: all 0.5s ease-out;
 }
 
 div.dropdown input:hover {

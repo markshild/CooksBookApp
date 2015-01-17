@@ -44,18 +44,24 @@
 
 </div>
 
-<h5>Tags</h5>
-<div id="tag">
-  <% tags.each( function(tag) { %>
-    <li><%= tag.escape('name') %></li>
-    <% });  %>
-</div>
-
-<h5>Nutrition Information</h5>
+<div class="group">
 <div class="nutrition">
+<h5>Nutrition Information</h5>
   <img src="<%= recipe.get('nutrition_url') %>"/>
 </div>
 
+
+<div id="tag">
+<h5>Tags</h5>
+  <ul>
+  <% tags.each( function(tag) { %>
+    <li><%= tag.escape('name') %></li>
+    <% });  %>
+  </ul>
+</div>
+</div>
+
+<br>
 <div id="fav">
 
 <h5>Favorites</h5>
@@ -69,7 +75,7 @@
 <% } %>
 </div>
 
-<div id="comm">
+<div id="group comm">
 
 <h5>Comments</h5>
 <div id="comment">
@@ -84,7 +90,7 @@
 
 <% if (recipe._author) { %>
   <% if (recipe._author.id === current_id) { %>
-    <a href="#/recipes/<%= recipe.id %>/edit">Edit Recipe</a>
+    <a class="edit-rec" href="#/recipes/<%= recipe.id %>/edit">Edit Recipe</a>
     <input type="button" class="delete" value="Delete Recipe">
   <% }; %>
 <% }; %>

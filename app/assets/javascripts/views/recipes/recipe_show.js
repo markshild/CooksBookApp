@@ -2,7 +2,7 @@ CooksBookApp.Views.RecipeShow = Backbone.CompositeView.extend({
 
   template: JST['recipes/show'],
 
-  className: 'recipes-show',
+  className: 'recipes-show group',
 
   initialize: function () {
     this.comments = this.model.comments();
