@@ -6,12 +6,17 @@ CooksBookApp.Routers.Router = Backbone.Router.extend({
 
   routes: {
     '': 'index',
+    '_=_': 'goToRoot',
     'recipes/new': 'new',
     'recipes/search/': 'search',
     'recipes/search/:data': 'search',
     'recipes/:id': 'show',
     'recipes/:id/edit': 'edit',
     'users/current': 'userShow'
+  },
+
+  goToRoot: function () {
+    Backbone.history.navigate('', {trigger: true})
   },
 
   edit: function (id) {

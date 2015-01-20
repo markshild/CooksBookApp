@@ -13,5 +13,6 @@
  *= require reset.css
  *= require header.css
  *= require body.css
+ *= require zocial.css
  *= require_self
  */

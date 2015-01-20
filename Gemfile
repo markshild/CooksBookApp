@@ -14,13 +14,17 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
+# search and pagination for search
 gem 'pg_search'
 gem 'kaminari'
 
-# For interacting with Wolfram ALpha Api
+# For interacting with Wolfram Alpha Api
 gem 'addressable'
 gem 'rest-client'
 gem 'nokogiri'
+
+# facebook authentication
+gem 'omniauth-facebook'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

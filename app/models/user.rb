@@ -28,6 +28,25 @@ class User < ActiveRecord::Base
     BCrypt::Password.new(self.password_digest).is_password?(password)
   end
 
+  def self.find_or_create_by_auth_hash(auth_hash)
+    user = User.find_by(
+    provider: auth_hash[:provider],
+    uid: auth_hash[:uid])
+
+    if user.nil?
+      pass = SecureRandom::urlsafe_base64
+      user = User.create!(
+      name: auth_hash[:info][:name],
+      email: auth_hash[:info][:email],
+      password: pass,
+      password_confirmation: pass,
+      provider: auth_hash[:provider],
+      uid: auth_hash[:uid])
+    end
+
+    user
+  end
+
   private
   def confirmation_on_signup
     if !self.persisted? && !self.password_confirmation.present?

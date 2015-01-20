@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   end
   resources :comments, only: [:destroy]
 
+  get "auth/:provider/callback" => "sessions#omniauth"
+
   namespace :api, defaults: { format: :json } do
     resources :recipes do
       get "search", on: :collection
