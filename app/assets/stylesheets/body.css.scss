@@ -487,3 +487,44 @@ div#tag li {
 div.nutrition {
   float: left;
 }
+
+div.users-show h2{
+  text-align: center;
+  background: black;
+  color: lightsteelblue;
+}
+div.users-show {
+  background: #bdc3c7;
+}
+
+div.users-show div#my-recipes, div#my-favorites {
+  width: calc(50% - 2px) ;
+  float: left;
+  text-align: center;
+  min-height: 500px;
+}
+
+div.users-show div#my-recipes h5, div#my-favorites h5{
+  text-decoration: underline;
+  border-bottom: 10px;
+}
+
+div.users-show div#my-recipes {
+  border-right: 2px solid black;
+}
+
+div.users-show div#my-favorites {
+  border-left: 2px solid black;
+}
+
+div.users-show li.recipe-box {
+  width: 200px;
+  height: 150px;
+}
+
+
+div.users-show li.recipe-box strong{
+  position: absolute;
+  font-size: 20px;
+
+}
