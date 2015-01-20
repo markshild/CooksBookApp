@@ -246,7 +246,7 @@ div.rec-search .t, .s{
 
 div.rec-search .s, div.recipes-index .s {
   float: none;
-  background: url("search.png");
+  background: image-url("search.png");
 }
 
 body {
@@ -334,6 +334,32 @@ div.recipes-form form.form textarea {
 
 div.recipes-form form label {
   display: block;
+  font-size: 20px;
+  margin: 10px 0 5px 0;
+}
+
+div.recipes-form form label.ch {
+  font-size: 16px;
+  margin: none;
+}
+
+div.recipes-form form .sub {
+  width: 100%;
+  margin: auto;
+  cursor: pointer;
+}
+
+div.recipes-form form a {
+  color: green;
+  font-weight: bold;
+}
+
+span.remove {
+  background: red;
+  border-radius: 50%;
+  padding: 2px 5px;
+  width: 9px;
+  cursor: pointer;
 }
 
 div.recipes-form form * {
