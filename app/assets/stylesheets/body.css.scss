@@ -41,6 +41,21 @@ form.sign input {
   cursor: text;
 }
 
+section.sign input.guest {
+  float: right;
+  cursor: pointer;
+  background: green;
+  color: white;
+  padding: 6px 5px;
+  display: block;
+  margin: 5px 20px 0 0 ;
+}
+
+div.fbook {
+  margin: 0 0 20px 20px;
+  float: left;
+}
+
 section.background-pic {
   position: relative;
   display: block;
