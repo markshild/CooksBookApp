@@ -1,13 +1,13 @@
 <h2>Recipes for <%= user.escape('name') %></h5>
 
-<div id="group my-recipes">
+<div id="my-recipes" class="group">
   <h5>My Recipes</h5>
   <% recipes.each( function(recipe) { %>
     <%= recipePartial({recipe: recipe}) %>
   <% });  %>
 </div>
 
-<div id="group my-favorites">
+<div id="my-favorites" class="group">
   <h5>My Favorites</h5>
   <% favorites.each( function(recipe) { %>
     <%= recipePartial({recipe: recipe}) %>

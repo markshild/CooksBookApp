@@ -2,7 +2,7 @@ CooksBookApp.Views.UserShow = Backbone.View.extend({
 
   template: JST['users/current'],
 
-  className: 'users-show',
+  className: 'users-show group',
 
   initialize: function () {
     this.recipes = this.model.recipes();
