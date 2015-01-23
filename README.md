@@ -1,64 +1,21 @@
-# MY FINAL PROJECT
+# CooksBook
 
-For my final project, I will be doing a clone of the [Yummly](http://www.yummly.com/) website. This is a recipe sharing website where users can upload their own recipes as well as find and store other users recipes.
+This is a recipe sharing web app where users can upload their own recipes as well as find and store other users' recipes.
+
+Recipes contain nested ingredients, directions and comments, allowing for user inputs and variable counts for each. Interaction with Wolfram Alpha's API allows users to see nutritional information on recipes based on the ingredients entered. Facebook authentication allows users to sign in with their Facebook accounts in lieu of signing up.
+
+Users can upload an image of their recipe which I store in Amazon's S3 Cloud storage (keys hidden of course). Users can favorite a recipe, adding it to their list of favorites as well as increasing the favorites count for that recipe.
+
+Other features are listed below. Enjoy! 
 
 ## FEATURES:
 * Users/Auth
+* Multiple Sessions per User
 * Recipes
 * Comments
 * Tags
-Up to this point is the MVP
 * Search
+* Uploadable images stored in Amazon's S3 cloud storage
 * Favorite Recipes
-* Advanced Search
-* Notifications
-* Email Confirmation and Password Recovery
 * Nutrition Information
-* Printable Recipe Page
-
-
-## DB SCHEMA:
-### Users:
-Name - string
-Email - string
-Password_digest - string
-img_url - string
-
-### Session:
-Session_Token - string
-user_id - integer
-
-### Recipes:
-Title - string
-Description - text
-user_id - integer
-Servings - integer
-cooking_time - integer
-img_url - string
-
-### Comments:
-recipe_id - integer
-user_id - integer
-body - text
-
-### Ingredients:
-recipe_id - integer
-ingredient - string
-ord - integer
-
-### Steps:
-recipe_id - integer
-step - string
-ord - integer
-
-### Tags:
-name - string
-
-### Favorites Join Table:
-recipe_id - integer
-favoriter_id - integer
-(put a uniqueness constraint on both columns together)
-
-### Tag-Recipe Join Table:
-tag_id - integer
-recipe_id - integer
+* Facebook Authentication
