@@ -41,15 +41,6 @@ form.sign input {
   cursor: text;
 }
 
-section.sign input.guest {
-  float: right;
-  cursor: pointer;
-  background: green;
-  color: white;
-  padding: 6px 5px;
-  display: block;
-  margin: 5px 20px 0 0 ;
-}
 
 div.fbook {
   margin: 0 0 20px 20px;
@@ -89,13 +80,26 @@ form.sign input:active {
   outline: none;
 }
 
+section.sign div.guest {
+  float: right;
+  margin: 5px 20px 0 0 ;
+}
+
+section.sign div.guest {
+  cursor: pointer;
+  background: green;
+  color: white;
+  padding: 6px 5px;
+  display: block;
+  border-radius: 5px;
+}
+
 form.sign input.button {
   background: green;
   color: white;
   cursor: pointer;
   border-radius: 5px;
   padding: 6px 5px;
-  box-shadow: 3px 0 darkgray;
   box-shadow: 0 0 5px white;
   position: relative;
 }
@@ -262,6 +266,7 @@ div.rec-search .t, .s{
 div.rec-search .s, div.recipes-index .s {
   float: none;
   background: image-url("search.png");
+  background-repeat: no-repeat;
 }
 
 body {

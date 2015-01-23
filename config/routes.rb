@@ -3,11 +3,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create]
   resource :session, only: [:new, :create, :destroy]
-  resources :recipes do
-    resources :comments, only: [:create]
-  end
-  resources :comments, only: [:destroy]
-
+  get "users/guest" => "users#guest"
   get "auth/:provider/callback" => "sessions#omniauth"
 
   namespace :api, defaults: { format: :json } do

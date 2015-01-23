@@ -14,6 +14,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def guest
+    @user = User.new({name: "Guest", password: "password",
+      password_confirmation: "password", email: SecureRandom.urlsafe_base64 })
+    @user.save
+    sign_in(@user)
+    redirect_to root_url
+  end
+
   private
   def user_params
     params.require(:user).permit(:password, :email, :name, :password_confirmation)
