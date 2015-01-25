@@ -48,11 +48,10 @@ class Recipe < ActiveRecord::Base
       wolfram_response = RestClient.get(wolfram_url)
       doc = Nokogiri::Slop(wolfram_response)
       img_url = doc.queryresult.pod.subpod.img["src"]
-      puts img_url
-      nutrition = open(img_url)
 
+      nutrition = open(img_url)
+      
       self.nutrition = nutrition
-      # self.save if self.valid?
     rescue NoMethodError
     end
     nil
