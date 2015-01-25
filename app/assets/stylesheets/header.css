@@ -7,7 +7,7 @@ header {
   z-index: 2;
 }
 
-header nav h6 {
+header nav h6.name {
   font-family: "FuturaExtended";
   font-size: 20px;
   padding: 8px 10px 5px 10px;
@@ -15,11 +15,14 @@ header nav h6 {
   position: relative;
   text-shadow: 0 0 0;
   cursor: pointer;
+  margin-rigt: 50px;
+  display: block;
+  left: 45px;
+
 }
 
 header nav {
   float: right;
-  margin-right: 20px;
 }
 
 header nav input {
@@ -93,11 +96,13 @@ header ul li {
 
 header a.add {
   float: left;
-  font-size: 30px;
+
   text-decoration: none;
-  padding: 5px 5px;
-  border: 1px solid white;
-  padding: 0 10px;
+  border-right: 1px solid white;
+  vertical-align: center;
+  font-size: 20px;
+  padding: 8px 10px 5px 10px;
+  margin-right: none;
 }
 
 a:hover {
