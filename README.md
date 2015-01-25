@@ -6,7 +6,11 @@ Recipes contain nested ingredients, directions and comments, allowing for user i
 
 Users can upload an image of their recipe which I store in Amazon's S3 Cloud storage (keys hidden of course). Users can favorite a recipe, adding it to their list of favorites as well as increasing the favorites count for that recipe.
 
-Other features are listed below. Enjoy! 
+The Wolfram Alpha API tends to be finicky. I am trying to figure out a way to make it return consistent results. I will update if I can figure it out.
+
+Technologies used include Ruby, Javascript, Rails, Backbone, jQuery, SQL, XML, CSS, HTML, as well as gems such as BCrypt, Nokogiri, PGsearch, Kaminari and many more.  
+
+All features are listed below. Enjoy! 
 
 ## FEATURES:
 * Users/Auth
