@@ -336,6 +336,7 @@ div.recipes-form form {
 .sub {
   background: green;
   cursor: pointer;
+  text-align: center;
 }
 div.recipes-form form.form .check {
   float: left;
@@ -438,6 +439,19 @@ div.recipes-show input.comment-submit, input.add-favorite, input.delete, input.d
   float: none;
 }
 
+#ingredient ul {
+  text-align: center;
+  display: block;
+  margin: auto;
+}
+
+#direction ol {
+  display: inline-block;
+  position: relative;
+  left: 50%;
+  transform: translatex(-50%);
+}
+
 div.recipes-show input.delete, input.delete-favorite {
   background: red;
 }
@@ -445,6 +459,7 @@ div.recipes-show input.delete, input.delete-favorite {
 div.recipes-show input.delete {
   margin-top: 8px;
   width: 100%;
+  text-align: center;
 }
 
 div.recipes-show .edit-rec {
@@ -464,13 +479,17 @@ div.recipes-show input.add-favorite, input.comment-submit {
   background: #2ecc71;
 }
 
-div.recipes-show div#fav, div#comm {
+#fav, #comm {
   float: left;
   display: block;
-  width: 50%;
+  width: 49%;
 }
 
-div.recipes-show div#comm textarea{
+#comm {
+  margin-bottom: 15px;
+}
+
+#comm textarea{
   width: 60%;
   float: left;
 }
@@ -517,23 +536,23 @@ div.users-show {
   background: #bdc3c7;
 }
 
-div.users-show div#my-recipes, div#my-favorites {
+#my-recipes, #my-favorites {
   width: calc(50% - 2px);
   float: left;
   text-align: center;
   min-height: 500px;
 }
 
-div.users-show div#my-recipes h5, div#my-favorites h5{
+#my-recipes h5, #my-favorites h5{
   text-decoration: underline;
   border-bottom: 10px;
 }
 
-div.users-show div#my-recipes {
+#my-recipes {
   border-right: 2px solid black;
 }
 
-div.users-show div#my-favorites {
+#my-favorites {
   border-left: 2px solid black;
 }
 
