@@ -21,16 +21,21 @@
       <li><input type="text" name="ingredient[]" value="<%= ingredient.escape('ingredient') %>"><span class="remove">X</span></li>
     <% }); %>
   </ul>
-  <a href="javascript:void(0)" class="add-ingredient">Add Ingredient</a>
+  <a href="javascript:void(0)" class="add-ingredient">+ Add Ingredient</a>
 
-
+  <div class="l">
   <label>Servings</label>
   <input type="number" name="recipe[servings]" value="<%= recipe.escape('servings') %>">
+  </div>
 
+  <div class="l">
   <label>Cooking Time (minutes)</label>
   <input type="number" name="recipe[cooking_time]" value="<%= recipe.escape('cooking_time') %>">
-
-
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
   <label>Directions</label>
   <input type="hidden" name="direction[]" value="">
   <ul id="directions">
@@ -38,7 +43,7 @@
       <li><input type="text" name="direction[]" value="<%= direction.escape('step') %>"> <span class="remove">X</span></li>
     <% }); %>
   </ul>
-  <a href="javascript:void(0)" class="add-direction">Add Direction</a>
+  <a href="javascript:void(0)" class="add-direction">+ Add Direction</a>
 
   <label>Tags</label>
   <input type="hidden" name="recipe[tag_ids][]" value="">

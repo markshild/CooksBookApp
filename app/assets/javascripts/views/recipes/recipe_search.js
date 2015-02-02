@@ -32,11 +32,16 @@ CooksBookApp.Views.RecipeSearch = Backbone.View.extend({
 
   renderSearchResults: function () {
     var container = this.$(".search-results");
+    if (this.collection.length === 0) {
+      var $el = $('<p>No results found</p>');
+      container.append($el);
+    } else {
     this.collection.each(function (recipe) {
       var subTemplate = JST["recipes/_box"]
 
       container.append(subTemplate({recipe: recipe}));
     });
+  }
   },
 
   search: function (event) {

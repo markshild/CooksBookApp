@@ -354,6 +354,7 @@ div.recipes-form form {
   margin: auto;
   width: 80%;
   background: #bdc3c7;
+  padding: 5px 20px;
 }
 
 .sub {
@@ -374,6 +375,7 @@ div.recipes-form form.form .ch {
 div.recipes-form form.form textarea {
   height: 80px;
   width: 320px;
+  background: lightsteelblue;
 }
 
 div.recipes-form form label {
@@ -404,6 +406,15 @@ span.remove {
   padding: 2px 5px;
   width: 9px;
   cursor: pointer;
+}
+
+span.remove:hover {
+  color: white;
+}
+
+div.recipes-form form li * {
+  float: left;
+  margin: 0 5px 5px 0;
 }
 
 div.recipes-form form * {
@@ -588,5 +599,18 @@ div.users-show li.recipe-box {
 div.users-show li.recipe-box strong{
   position: absolute;
   font-size: 20px;
+}
 
+p {
+  font-style: italic;
+}
+
+.search-results p {
+  margin-left: 20px;
+}
+
+form div.l {
+  float: left;
+  margin-right: 40px;
+  display: block;
 }

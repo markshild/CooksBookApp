@@ -2,6 +2,9 @@
 
 <div id="my-recipes" class="group">
   <h5>My Recipes</h5>
+  <% if (recipes.length === 0) { %>
+    <p>No recipes created...yet!</p>
+  <% } %>
   <% recipes.each( function(recipe) { %>
     <%= recipePartial({recipe: recipe}) %>
   <% });  %>
@@ -9,6 +12,9 @@
 
 <div id="my-favorites" class="group">
   <h5>My Favorites</h5>
+  <% if (favorites.length === 0) { %>
+    <p>No recipes favorited...yet!</p>
+    <% } %>
   <% favorites.each( function(recipe) { %>
     <%= recipePartial({recipe: recipe}) %>
   <% });  %>
